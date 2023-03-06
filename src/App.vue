@@ -2,7 +2,9 @@
 
 <template>
     <body>
-    <AccueilPage/>
+      <AccueilPage/>
+
+      <MapPage/>
     </body>
 
 </template>
@@ -11,12 +13,14 @@
 /* eslint-disable */
 
 import AccueilPage from './components/Accueil.vue'
+import MapPage from './components/Maps.vue'
 
 
 export default {
   name: 'App',
   components: {
     AccueilPage,
+    MapPage,
   }
 }
 </script>
@@ -28,6 +32,10 @@ export default {
 	src: url('~/src/assets/Valorant_Font.ttf') format('truetype')
 }
 
+@font-face {
+	font-family: 'Tw Cen MT';
+	src: url('~/src/assets/TwCenClassMTStd-Regular.otf') format('truetype')
+}
 
 
 #app {
@@ -38,6 +46,7 @@ export default {
   color: #2c3e50;
   
 }
+
 
 html,body{
   margin :0;
