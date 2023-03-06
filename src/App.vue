@@ -2,9 +2,7 @@
 
 <template>
     <body>
-    <HeaderSection/>
-    <AccueilSection/>
-    <!--<WeaponCard/>-->
+    <AccueilPage/>
     </body>
 
 </template>
@@ -12,18 +10,13 @@
 <script>
 /* eslint-disable */
 
-import HeaderSection from './components/Header.vue'
-import AccueilSection from './components/Accueil.vue'
-import WeaponCard from './components/WeaponCard.vue'
+import AccueilPage from './components/Accueil.vue'
 
 
 export default {
   name: 'App',
   components: {
-    HeaderSection,
-    AccueilSection,
-    WeaponCard,
-    
+    AccueilPage,
   }
 }
 </script>
