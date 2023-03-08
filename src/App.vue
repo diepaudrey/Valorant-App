@@ -3,7 +3,8 @@
 <template>
     <body>
       
-      <WeaponPage/>
+      <router-view></router-view>
+      <!-- <WeaponPage/> -->
       <!-- <AccueilPage/> -->
       
 
@@ -16,9 +17,9 @@
 <script>
 /* eslint-disable */
 
-import AccueilPage from './components/Accueil.vue'
-import MapPage from './components/Maps.vue'
-import WeaponPage from './components/Weapons.vue'
+import AccueilPage from './pages/Accueil.vue'
+import MapPage from './pages/Maps.vue'
+import WeaponPage from './pages/Weapons.vue'
 
 
 export default {
@@ -74,8 +75,5 @@ h2{
     color :  #111;
 }
 
-p{
-  font-size : 1.5em;
-  color : #111;
-}
+
 </style>
