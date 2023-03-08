@@ -45,7 +45,7 @@ import NavCard from './NavCard.vue'
 
 
 .text-presentation{
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 

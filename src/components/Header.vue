@@ -3,10 +3,10 @@
         <nav class="navbar">
             <img class="valorant-logo" src="../assets/valorant-logo.svg" alt="valorant-logo">
             <ul class="ul-container">
-                <li><a href="#Accueil">Accueil</a></li>
-                <li><a href="#Arsenal">Arsenal</a></li>
-                <li><a href="#Agents">Agents</a></li>
-                <li><a href="#Cartes">Cartes</a></li>
+                <li><router-link to="/"> Accueil </router-link></li>
+                <li><router-link to="/weapons">Arsenal</router-link></li>
+                <li><router-link to="/">Agents</router-link></li>
+                <li><router-link to="/maps">Cartes</router-link></li>
             </ul>
         </nav>
     </header>

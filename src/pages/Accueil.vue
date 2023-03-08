@@ -2,28 +2,22 @@
     <HeaderSection/>
     <MainSection/>
     <FooterSection/>
+    
 </template>
 
 <script>
-    import HeaderSection from './Header.vue'
-    import MainSection from './WeaponSection.vue'
-    import FooterSection from './Footer.vue'
+import HeaderSection from '../components/Header.vue'
+import MainSection from '../components/AccueilSection.vue'
+import FooterSection from '../components/Footer.vue'
 
 
     export default{
-        name : 'ArsenalPage',
+        name : 'AccueilPage',
         components : {
             HeaderSection,
             MainSection,
             FooterSection,
         }
-
     }
-
-
 </script>
 
-
-<style>
-
-</style>
