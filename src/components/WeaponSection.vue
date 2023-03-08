@@ -1,8 +1,6 @@
 <template>
-    <section>
-        <div class="img-box">
-            <img class="background-img" src="../assets/Arsenal-img.png">  
-        </div>
+    <section class="weapon-section">
+        <div class="img-box"></div>
 
         <div class="infoContainer">
             <h2 class="title"> Arsenal </h2>
@@ -20,7 +18,7 @@
 import WeaponCard from './WeaponCard.vue'
 
     export default{
-        name : 'ArsenalSection',
+        name : 'WeaponSection',
         components : {
             WeaponCard,
         }
@@ -30,17 +28,18 @@ import WeaponCard from './WeaponCard.vue'
 
 <style scoped>
 
+
+.weapon-section{
+    overflow : hidden;
+}
+
 .img-box{
     width: 100vw;
     height: 70vh;
+    background-image: url("../assets/Arsenal-img.png");
+    background-size: cover;
 }
 
-.background-img{
-    width: 100vw;
-    height: 70vh;
-    object-fit : cover;
-
-}
 
 
 

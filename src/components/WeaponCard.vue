@@ -1,7 +1,9 @@
 <template> 
-    <div class="weapon-box">
-        <img alt="Vandal" src="https://vgraphs.com/images/weapons/valorant-vandal-profile-icon.png">
-        <h2 class="weapon-name"> {{weaponName}} </h2>
+    <div class="container">
+        <div class="weapon-box" v-for="(weapon, index) in weapons" :key="index">
+            <img class="weapon-img" :src="weapon.displayIcon" alt="Vandal" >
+            <p class="weapon-name"> {{weapon.displayName}} </p>
+        </div>
     </div>
 </template>
 
@@ -14,9 +16,30 @@
         
 
     },
-    // data(){
-    //     return {test:60}
-    // }
+
+    data(){
+        return {
+            weapons : []
+        };
+    },
+
+    created(){
+        this.getWeapons();
+    },
+
+    methods :{
+        async getWeapons(){
+
+            try{
+                const response = await fetch("https://valorant-api.com/v1/weapons");
+                const data = await response.json();
+                this.weapons = data.data;
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+    }
 
     
 }
@@ -25,9 +48,18 @@
 
 <style scoped>
 
+.container{
+    width: 100%;
+    height: 100%;
+    
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 
 .weapon-box{
+    flex: 50%;
     width: 400px;
     height: 250px;
     /* height: v-bind(test)px; */
@@ -35,15 +67,12 @@
 
 }
 
-img {
+.weapon-img {
     height: auto%;
-    width: 100%;
+    width : 50%;
 }
 
-h2 {
-  color: #111;
-  margin :0;
-}
+
 
 
 </style>

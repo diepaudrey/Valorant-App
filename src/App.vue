@@ -3,7 +3,7 @@
 <template>
     <body>
       
-      <ArsenalPage/>
+      <WeaponPage/>
       <!-- <AccueilPage/> -->
       
 
@@ -18,7 +18,7 @@
 
 import AccueilPage from './components/Accueil.vue'
 import MapPage from './components/Maps.vue'
-import ArsenalPage from './components/Arsenal.vue'
+import WeaponPage from './components/Weapons.vue'
 
 
 export default {
@@ -26,7 +26,7 @@ export default {
   components: {
     AccueilPage,
     MapPage,
-    ArsenalPage
+    WeaponPage
   }
 }
 </script>
@@ -66,4 +66,16 @@ h3{
   color : #111;
 }
 
+h2{
+    margin-bottom :0;
+    margin-right : 60%;
+    font-family : Valorant;
+    font-size : 3em;
+    color :  #111;
+}
+
+p{
+  font-size : 1.5em;
+  color : #111;
+}
 </style>

@@ -6,7 +6,7 @@
 
 <script>
     import HeaderSection from './Header.vue'
-    import MainSection from './ArsenalSection.vue'
+    import MainSection from './WeaponSection.vue'
     import FooterSection from './Footer.vue'
 
 

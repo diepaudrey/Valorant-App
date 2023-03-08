@@ -29,7 +29,7 @@ import MapCard from './MapCard.vue'
 </script>
 
 
-<style>
+<style scoped>
 
 .mapCards{
     display: flex;
