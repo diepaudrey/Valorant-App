@@ -2,9 +2,13 @@
 
 <template>
     <body>
-      <AccueilPage/>
+      
+      <ArsenalPage/>
+      <!-- <AccueilPage/> -->
+      
 
-      <MapPage/>
+      <!--<MapPage/>-->
+
     </body>
 
 </template>
@@ -14,6 +18,7 @@
 
 import AccueilPage from './components/Accueil.vue'
 import MapPage from './components/Maps.vue'
+import ArsenalPage from './components/Arsenal.vue'
 
 
 export default {
@@ -21,6 +26,7 @@ export default {
   components: {
     AccueilPage,
     MapPage,
+    ArsenalPage
   }
 }
 </script>
@@ -54,5 +60,10 @@ html,body{
   background-color: #ECE8E1
 }
 
+h3{
+  font-family: 'Valorant';
+  font-size: 2em;
+  color : #111;
+}
 
 </style>

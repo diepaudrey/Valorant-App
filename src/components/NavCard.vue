@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <img class="background" v-bind:src="imgUrl"/>
-        <h2 class="cardName"> {{cardName}} </h2>
+        <h2 class="cardName"> <a href=""> {{cardName}} </a></h2>
     </div>
 
 </template>
@@ -56,6 +56,15 @@ h2 {
   margin :0;
   font-size : 2em;
   z-index: 2;
+}
+
+a{
+    color : white;
+    text-decoration :none;
+}
+
+a:hover{
+    text-decoration : none;
 }
 
 

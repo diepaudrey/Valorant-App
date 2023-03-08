@@ -1,13 +1,23 @@
 <template> 
-    <div class="informationText">
-        <img alt="Vandal Glitchpop" src="../assets/glitchpop.png">
-        <h2> Vandal Glitchpop </h2>
+    <div class="weapon-box">
+        <img alt="Vandal" src="https://vgraphs.com/images/weapons/valorant-vandal-profile-icon.png">
+        <h2 class="weapon-name"> {{weaponName}} </h2>
     </div>
 </template>
 
 <script>
     export default {
-    name: 'InformationCard',
+    name: 'WeaponCard',
+    props:{
+        weaponName : String,
+        weaponUrl : {type : String, default : "https://vgraphs.com/images/weapons/valorant-vandal-profile-icon.png"}
+        
+
+    },
+    // data(){
+    //     return {test:60}
+    // }
+
     
 }
 </script>
@@ -16,11 +26,12 @@
 <style scoped>
 
 
-div{
-    
+
+.weapon-box{
     width: 400px;
-    height: 200px;
-    border: 2px solid rgba(0,0,0,0.2);
+    height: 250px;
+    /* height: v-bind(test)px; */
+    border : 1px solid #BDBAB4;
 
 }
 
@@ -30,7 +41,7 @@ img {
 }
 
 h2 {
-  color: #2c3e50;
+  color: #111;
   margin :0;
 }
 

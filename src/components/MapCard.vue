@@ -36,6 +36,7 @@
 
 .map-name{
     margin-right: 55%;
+    color : #111;
 }
 
 </style>

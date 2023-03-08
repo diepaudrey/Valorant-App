@@ -1,7 +1,7 @@
 <template>
     <section class="mapSection">
 
-        <div class="map-container"></div>
+        <div class="map-img"></div>
 
         <div class="infoContainer">
             <h1 class="title"> Cartes </h1>
@@ -35,10 +35,11 @@ import MapCard from './MapCard.vue'
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom:2em;
 }
 
-.map-container {
-   width : 100 vw;
+.map-img {
+    width : 100 vw;
     height : 70vh;
     background-image : url("https://cdn.oneesports.gg/cdn-data/2023/01/Valorant_Lotus_Episode6ActI_Map_4.jpg");
     background-size : cover;
@@ -50,7 +51,7 @@ img{
 }
 
 .title{
-    padding : 2%;
+    margin-bottom :0;
     margin-right : 60%;
     font-family : Valorant;
     font-size : 4em;
