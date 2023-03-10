@@ -5,7 +5,7 @@
             <ul class="ul-container">
                 <li><router-link :to="{name: 'homepage'}"> Accueil </router-link></li>
                 <li><router-link :to="{name: 'weapons'}"> Arsenal</router-link></li>
-                <li><router-link to="/">Agents</router-link></li>
+                <li><router-link :to="{name: 'homepage'}">Agents</router-link></li>
                 <li><router-link :to="{name: 'maps'}">Cartes</router-link></li>
             </ul>
         </nav>
