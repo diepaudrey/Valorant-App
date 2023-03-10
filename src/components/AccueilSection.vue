@@ -17,7 +17,7 @@
 
                 <NavCard cardName = "Arsenal" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/>
 
-                <NavCard cardName = "Skins" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/>
+                <!-- <NavCard cardName = "Skins" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/> -->
             </div>
 
         </div>

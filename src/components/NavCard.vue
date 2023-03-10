@@ -1,8 +1,10 @@
 <template>
     <div class="card">
         <img class="background" v-bind:src="imgUrl"/>
-        <h2 class="cardName"> <a href=""> {{cardName}} </a></h2>
+        <h2 class="cardName">  {{cardName}} </h2>
     </div>
+
+    <!-- <router-link :to="routerLink"></router-link> -->
 
 </template>
 
@@ -10,6 +12,7 @@
     export default {
     name: 'NavCard',
     props: {
+        routerLink : String,
         cardName : String,
         imgUrl : {type : String, default : "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt962a6518612d78db/6131a93da9655d098c7cd8f0/09082021-Episode-3-Act-II-Overview-Article-Banner.jpg"}
     }

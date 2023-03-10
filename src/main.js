@@ -8,9 +8,9 @@ import Weapons from "./pages/Weapons.vue"
 
 
 const routes = [
-    { path: '/', component: Accueil},
-    { path: '/maps', component : Maps},
-    { path: '/weapons', component : Weapons}
+    { path: '/', component: Accueil, name: "homepage"},
+    { path: '/maps', component : Maps, name: "maps"},
+    { path: '/weapons', component : Weapons, name: "weapons"}
 ]
 
 const router = VueRouter.createRouter({

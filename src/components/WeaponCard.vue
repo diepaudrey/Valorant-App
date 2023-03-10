@@ -1,48 +1,29 @@
 <template> 
     <div class="container">
-        <div class="weapon-box" v-for="(weapon, index) in weapons" :key="index">
-            <img class="weapon-img" :src="weapon.displayIcon" alt="Vandal" >
-            <p class="weapon-name"> {{weapon.displayName}} </p>
+        <div class="weapon-box">
+            <img class="weapon-img" v-bind:src="weaponImg" alt="Weapon image" >
+            <p class="weapon-name"> {{weaponName}} </p>
         </div>
     </div>
 </template>
 
 <script>
+    /* eslint-disable */
+    import { getWeaponsData } from '@/services/api/weaponsAPI.js'
+
     export default {
-    name: 'WeaponCard',
-    props:{
-        weaponName : String,
-        weaponUrl : {type : String, default : "https://vgraphs.com/images/weapons/valorant-vandal-profile-icon.png"}
-        
-
-    },
-
-    data(){
-        return {
-            weapons : []
-        };
-    },
-
-    created(){
-        this.getWeapons();
-    },
-
-    methods :{
-        async getWeapons(){
-
-            try{
-                const response = await fetch("https://valorant-api.com/v1/weapons");
-                const data = await response.json();
-                this.weapons = data.data;
-            }
-            catch(error){
-                console.log(error);
-            }
-        }
-    }
+        name: 'WeaponCard',
+        props : {
+            weaponName : String,
+            weaponImg : String,
+        } 
 
     
-}
+        
+
+    }
+
+
 </script>
 
 
@@ -51,15 +32,13 @@
 .container{
     width: 100%;
     height: 100%;
-    
     display : flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+   
 }
 
 
 .weapon-box{
-    flex: 50%;
+    flex: 49%;
     width: 400px;
     height: 250px;
     /* height: v-bind(test)px; */
@@ -68,8 +47,8 @@
 }
 
 .weapon-img {
-    height: auto%;
-    width : 50%;
+    height: 50%;
+    width : auto;
 }
 
 
