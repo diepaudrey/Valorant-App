@@ -30,6 +30,10 @@
     object-fit : cover;
 }
 
+.cardNam{
+    
+}
+
 .card{
     height : 200px;
     width : 200px;
@@ -50,14 +54,18 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8); 
+  
+  text-decoration: none;
   z-index: 1;
 }
 
 
-h2 {
+.cardName {
   color:  #ECE8E1;
   margin :0;
   font-size : 2em;
+  font-family : Valorant;
+  text-decoration: none;
   z-index: 2;
 }
 

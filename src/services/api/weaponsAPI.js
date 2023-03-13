@@ -1,15 +1,32 @@
 const getWeaponsData = async function () {
     const response = await fetch("https://valorant-api.com/v1/weapons")
 
-    return response.json()
-    // if(response.status === 200){
-        
-    // }
-    // else{
-    //     new Error(response.statusText)
-    // }
+    
+    if(response.status === 200){
+        return response.json()
+    }
+    else{
+        new Error(response.statusText)
+    }
 
 
 }
 
 export { getWeaponsData }
+
+
+const getAgentsData = async function () {
+    const response = await fetch("https://valorant-api.com/v1/agents")
+
+    
+    if(response.status === 200){
+        return response.json()
+    }
+    else{
+        new Error(response.statusText)
+    }
+
+
+}
+
+export { getAgentsData }

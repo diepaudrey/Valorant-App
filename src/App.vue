@@ -4,6 +4,9 @@
     <body>
       
       <router-view></router-view>
+
+      <!-- <AgentSection/> -->
+
       <!-- <WeaponPage/> -->
       <!-- <AccueilPage/> -->
       
@@ -21,13 +24,17 @@ import AccueilPage from './pages/Accueil.vue'
 import MapPage from './pages/Maps.vue'
 import WeaponPage from './pages/Weapons.vue'
 
+import AgentSection from './components/AgentSection.vue'
+
 
 export default {
   name: 'App',
   components: {
     AccueilPage,
     MapPage,
-    WeaponPage
+    WeaponPage,
+    
+    AgentSection,
   }
 }
 </script>

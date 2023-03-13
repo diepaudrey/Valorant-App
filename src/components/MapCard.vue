@@ -36,6 +36,8 @@
 
 .map-name{
     margin-right: 55%;
+    font-family: Valorant;
+    font-size: 2em;
     color : #111;
 }
 

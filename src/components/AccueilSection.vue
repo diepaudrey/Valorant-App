@@ -11,13 +11,18 @@
             </div>
 
             <div class="navCards">
-                <NavCard cardName = "Agent" imgUrl="https://www.gamewallpapers.com/wallpapers_slechte_compressie/01wallpapers/wallpaper_valorant_01_1920x1080.jpg"/>
+                <router-link :to="{name: 'agents'}" class="router">
+                <NavCard cardName = "Agents" imgUrl="https://www.gamewallpapers.com/wallpapers_slechte_compressie/01wallpapers/wallpaper_valorant_01_1920x1080.jpg"/>
+                </router-link>
 
+                <router-link :to="{name: 'maps'}" class="router">
                 <NavCard cardName = "Cartes" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/>
+                </router-link>
 
+                <router-link :to="{name: 'weapons'}" class="router">
                 <NavCard cardName = "Arsenal" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/>
-
-                <!-- <NavCard cardName = "Skins" imgUrl="https://media.discordapp.net/attachments/1075396207968534580/1082306634912645230/lotus_loadingscreen_p1.png?width=1191&height=670"/> -->
+                </router-link>
+                
             </div>
 
         </div>
@@ -66,7 +71,6 @@ import NavCard from './NavCard.vue'
     display : flex;
     flex-direction : row;
     justify-content : space-evenly;
-
     padding : 5%;
 }
 
@@ -77,4 +81,9 @@ import NavCard from './NavCard.vue'
     font-size : 4em;
     color :  #111;
 }
+
+.router{
+    text-decoration: none;
+}
+
 </style>
