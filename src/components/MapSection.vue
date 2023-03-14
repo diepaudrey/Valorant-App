@@ -4,9 +4,20 @@
         <div class="map-img"></div>
 
         <div class="infoContainer">
-            <h2 class="title"> Cartes </h2>
+            <div class="header-section">
+                <h2 class="title"> Cartes </h2>
 
-            <div class="mapCards" v-for="(map,index) in maps" :key="index">
+                <div class="search-bar">
+                    <input type="text" v-model="search" placeholder="Chercher une carte">
+                    <label for="map-sort"> Trier par : </label>
+                    <select v-model="mapsSortType" id="map-sort">
+                        <option value="AZName">Trier par ordre alphabetique</option>
+                    </select>
+                </div>
+            </div>
+            
+
+            <div class="map-cards" v-for="(map,index) in maps" :key="index">
                 <MapCard :mapName="map.displayName" :mapImg="map.splash"/>
                 
             </div>
@@ -30,7 +41,9 @@ import { getMapsData } from '@/services/api/weaponsAPI';
 
         data(){
             return {
-                maps : []
+                maps : [],
+                search: "",
+                mapsSortType: "AZName"
             };
         },
 
@@ -52,8 +65,15 @@ import { getMapsData } from '@/services/api/weaponsAPI';
 
 
 <style scoped>
+.header-section {
+    display : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top : 40px;
+}
 
-.mapCards{
+.map-cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,12 +92,8 @@ img{
    
 }
 
-/* .title{
-    margin-bottom :0;
-    margin-right : 60%;
-    font-family : Valorant;
-    font-size : 4em;
-    color :  #111;
-} */
+.title{
+    margin :0;
+}
 
 </style>

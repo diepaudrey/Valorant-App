@@ -51,6 +51,11 @@
     width : auto;
 }
 
+.weapon-name{
+    font-size: 1.5em;
+    color: #111;
+}
+
 
 
 

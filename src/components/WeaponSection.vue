@@ -5,7 +5,6 @@
         <div class="infoContainer">
             <h2 class="title"> Arsenal </h2>
             <h3 class="weapon-type"> Type d'arme </h3>
-
             <div class="weapon-cards" v-for="(weapon, index) in weapons" :key="index">
                 <WeaponCard class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
             </div>
