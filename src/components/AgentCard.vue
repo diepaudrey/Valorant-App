@@ -36,11 +36,12 @@ export default {
 }
 
 .agent-div{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    margin-top : 20px;
 
     background-size: cover;
-    background-position: center;
+
 }
 
 </style>

@@ -8,7 +8,7 @@
 
             <div class="agent-cards">
                 <div v-for="(agent, index) in agents" :key="index">
-                <AgentCard class="agent-card" :agentName="agent.displayName" :agentImg="agent.displayIcon" />
+                <AgentCard class="agent-card" v-if="agent.isPlayableCharacter"  :agentName="agent.displayName" :agentImg="agent.displayIcon" />
                 </div>
             </div>
             
