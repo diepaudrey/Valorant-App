@@ -4,11 +4,11 @@
         <div class="map-img"></div>
 
         <div class="infoContainer">
-            <h1 class="title"> Cartes </h1>
+            <h2 class="title"> Cartes </h2>
 
-            <div class="mapCards">
-                <MapCard mapName="Lotus"/>
-                <MapCard mapName="Ascent"/>
+            <div class="mapCards" v-for="(map,index) in maps" :key="index">
+                <MapCard :mapName="map.displayName" :mapImg="map.splash"/>
+                
             </div>
 
         </div>
@@ -20,11 +20,33 @@
 <script>
 import MapCard from './MapCard.vue'
 
+import { getMapsData } from '@/services/api/weaponsAPI';
+
     export default {
         name : 'MapSection',
         components : {
             MapCard,
+        },
+
+        data(){
+            return {
+                maps : []
+            };
+        },
+
+        created(){
+            this.getMaps();
+        },
+
+        methods:{
+            getMaps(){
+                this.maps = getMapsData();
+                this.maps.then((result) => this.maps = result.data)
+
+            }
         }
+
+
     }
 </script>
 
@@ -50,12 +72,12 @@ img{
    
 }
 
-.title{
+/* .title{
     margin-bottom :0;
     margin-right : 60%;
     font-family : Valorant;
     font-size : 4em;
     color :  #111;
-}
+} */
 
 </style>
