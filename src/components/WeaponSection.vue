@@ -3,9 +3,18 @@
         <div class="img-box"></div>
 
         <div class="infoContainer">
-            <h2 class="title"> Arsenal </h2>
-            <h3 class="weapon-type"> Type d'arme </h3>
-            <div class="weapon-cards" v-for="(weapon, index) in weapons" :key="index">
+            
+            <div class="top-section">
+                <h2 class="title"> Arsenal </h2>
+
+                <div class="search-bar">
+                        <input type="text" v-model="search" placeholder="Chercher une arme">
+                        
+                </div>
+            </div>
+            
+            <!-- <h3 class="weapon-type"> Type d'arme </h3> -->
+            <div class="weapon-cards" v-for="(weapon, index) in filteredWeapons" :key="index">
                 <WeaponCard class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
             </div>
         </div>
@@ -25,7 +34,8 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
         },
         data(){
             return {
-                weapons : []
+                weapons : [],
+                search : ""
             };
         },
 
@@ -33,10 +43,17 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
             this.getWeapons();
         },
 
+        computed: {
+            filteredWeapons() {
+                // console.log(this.maps);
+                return this.weapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            }
+        },
+
         methods : {
             getWeapons(){
-                this.weapons = getWeaponsData();
-                this.weapons.then((result) => this.weapons = result.data, console.log(this.weapons))
+                const promise = getWeaponsData();
+                promise.then((result) => this.weapons = result.data.sort((a,b)=> a.category.localeCompare(b.category)))
             
             }
         }
@@ -45,7 +62,13 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 </script>
 
 <style scoped>
-
+.top-section{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .weapon-section{
     overflow : hidden;
@@ -57,8 +80,6 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
     background-image: url("../assets/Arsenal-img.png");
     background-size: cover;
 }
-
-
 
 
 .weapon-cards{

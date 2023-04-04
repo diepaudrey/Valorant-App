@@ -5,13 +5,6 @@
       
       <router-view></router-view>
 
-      <!-- <AgentSection/> -->
-
-      <!-- <WeaponPage/> -->
-      <!-- <AccueilPage/> -->
-      
-
-      <!--<MapPage/>-->
 
     </body>
 

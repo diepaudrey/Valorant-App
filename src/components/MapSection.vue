@@ -9,16 +9,18 @@
 
                 <div class="search-bar">
                     <input type="text" v-model="search" placeholder="Chercher une carte">
-                    <label for="map-sort"> Trier par : </label>
-                    <select v-model="mapsSortType" id="map-sort">
-                        <option value="AZName">Trier par ordre alphabetique</option>
-                    </select>
+                    
                 </div>
+
             </div>
             
 
-            <div class="map-cards" v-for="(map,index) in maps" :key="index">
-                <MapCard :mapName="map.displayName" :mapImg="map.splash"/>
+            <div class="map-cards">
+                <MapCard
+                v-for="map in filteredMaps" 
+                :key="map.displayName"
+                :mapName="map.displayName" 
+                :mapImg="map.splash"/>
                 
             </div>
 
@@ -43,7 +45,7 @@ import { getMapsData } from '@/services/api/weaponsAPI';
             return {
                 maps : [],
                 search: "",
-                mapsSortType: "AZName"
+                // mapsSortType: "AZName"
             };
         },
 
@@ -51,12 +53,21 @@ import { getMapsData } from '@/services/api/weaponsAPI';
             this.getMaps();
         },
 
+        
+        computed: {
+            filteredMaps() {
+                // console.log(this.maps);
+                return this.maps.filter(map => {return map.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            }
+        },
+
         methods:{
             getMaps(){
-                this.maps = getMapsData();
-                this.maps.then((result) => this.maps = result.data)
+                const promise = getMapsData();
+                promise.then((result) => this.maps = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
 
-            }
+            },
+
         }
 
 
@@ -65,6 +76,7 @@ import { getMapsData } from '@/services/api/weaponsAPI';
 
 
 <style scoped>
+
 .header-section {
     display : flex;
     flex-direction : row;

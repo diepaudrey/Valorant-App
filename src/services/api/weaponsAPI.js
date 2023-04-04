@@ -35,6 +35,7 @@ const getMapsData = async function () {
     const response = await fetch("https://valorant-api.com/v1/maps")
 
     if(response.status === 200){
+        
         return response.json()
     }
     else{
@@ -43,3 +44,5 @@ const getMapsData = async function () {
 }
 
 export { getMapsData }
+
+

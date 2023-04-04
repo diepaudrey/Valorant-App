@@ -39,8 +39,8 @@ import { getAgentsData } from '@/services/api/weaponsAPI.js'
 
         methods : {
             getAgents(){
-                this.agents = getAgentsData();
-                this.agents.then((result) => this.agents = result.data, console.log(this.agents))
+                const promise = getAgentsData();
+                promise.then((result) => this.agents = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
             
             }
         }
