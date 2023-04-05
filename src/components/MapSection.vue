@@ -59,13 +59,15 @@ import { getMapsData } from '@/services/api/weaponsAPI';
                 // console.log(this.maps);
                 return this.maps.filter(map => {return map.displayName.toLowerCase().includes(this.search.toLowerCase())})
             }
+
         },
 
         methods:{
             getMaps(){
                 const promise = getMapsData();
-                promise.then((result) => this.maps = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
-
+                //by default sort in AZname 
+                const comparator = (a,b)=> a.displayName.localeCompare(b.displayName);
+                promise.then((result) => this.maps = result.data.sort(comparator));
             },
 
         }

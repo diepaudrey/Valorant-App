@@ -1,7 +1,11 @@
 <template>
-    <HeaderSection/>
-    <MainSection/>
-    <FooterSection/>
+    <body class="page">
+        <HeaderSection/>
+        <MainSection/>
+        <FooterSection/>
+    </body>
+       
+   
     
 </template>
 
@@ -20,4 +24,6 @@ import FooterSection from '../components/Footer.vue'
         }
     }
 </script>
+
+
 

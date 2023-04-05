@@ -1,7 +1,6 @@
 <template> 
     <section class = "main-section">
         <div class="img"></div>
-
         <div class="accueil-content">
             <h1 class="title"> Presentation </h1>
 
@@ -47,16 +46,12 @@ import NavCard from './NavCard.vue'
 
 
 <style scoped>
-
-
-.text-presentation{
-    font-size: 1em;
+@media screen and (min-width:1024px){
+    .text-presentation{
+    font-size: 1.2em;
 }
 
 
-.main-section {
-    background-color : #ECE8E1; 
-}
 
 .img{
     width : 100 vw;
@@ -85,5 +80,111 @@ import NavCard from './NavCard.vue'
 .router{
     text-decoration: none;
 }
+.img{
+    width : 100vw;
+    height : 70vh;
+    background-image : url("../assets/main-img.jpg");
+    background-size : cover;
+}
+}
+
+
+
+
+
+@media screen and (min-width: 768px) and (max-width:1023px){
+    .text-presentation{
+    font-size: 1.1em;
+}
+
+
+.main-section {
+    background-color : #ECE8E1; 
+}
+
+
+.navCards{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-evenly;
+    padding : 5%;
+}
+
+.title{
+    padding : 2%;
+    margin-right : 60%;
+    font-family : Valorant;
+    font-size : 3em;
+    color :  #111;
+}
+
+.router{
+    text-decoration: none;
+}
+
+.img{
+    width : 100%;
+    height : 40vh;
+    background-image : url("../assets/main-img.jpg");
+    background-size : cover;
+}
+}
+
+
+
+
+
+
+
+@media screen and (max-width:767px){
+    .text-presentation{
+    font-size: 0.8em;
+}
+
+
+.main-section {
+    background-color : #ECE8E1;
+}
+
+.accueil-content{
+    padding : 2%;
+}
+
+.img{
+    width : 100vw;
+    height : 70vh;
+    background-image : url("../assets/main-img.jpg");
+    background-size : cover;
+}
+
+
+
+.navCards{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-evenly;
+    padding : 5%;
+}
+
+.title{
+    padding : 2%;
+    margin-right : 60%;
+    font-family : Valorant;
+    font-size : 2em;
+    color :  #111;
+}
+
+.router{
+    text-decoration: none;
+}
+.img{
+    width : 100%;
+    height : 40vh;
+    background-image : url("../assets/main-img.jpg");
+    background-size : cover;
+}
+}
+
+
 
 </style>

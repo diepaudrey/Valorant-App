@@ -1,12 +1,8 @@
 
 
 <template>
-    <body>
-      
-      <router-view></router-view>
-
-
-    </body>
+    
+  <router-view></router-view>
 
 </template>
 
@@ -55,11 +51,12 @@ export default {
 }
 
 
-html,body{
+body{
   margin :0;
   padding : 0;
-  background-color: #ECE8E1
+  background-color: #ECE8E1;
 }
+
 
 h3{
   font-family: 'Valorant';
@@ -74,6 +71,8 @@ h2{
     font-size : 3em;
     color :  #111;
 }
+
+
 
 
 </style>

@@ -22,17 +22,14 @@
 
 
 <style scoped>
-
-.background{
+@media screen and (min-width:1024px){
+    .background{
     position : absolute;
     height : 200px;
     width : 200px;
     object-fit : cover;
 }
 
-.cardNam{
-    
-}
 
 .card{
     height : 200px;
@@ -76,6 +73,117 @@ a{
 
 a:hover{
     text-decoration : none;
+}
+
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px){
+.background{
+    position : absolute;
+    height : 100%;
+    width : 100%;
+    object-fit : cover;
+}
+
+
+.card{
+    height : 150px;
+    width : 150px;
+    position : relative;
+    display :flex;
+    justify-content : center;
+    align-items : center;
+    margin : 1%;
+    z-index: 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  
+  text-decoration: none;
+  z-index: 1;
+}
+
+
+.cardName {
+  color:  #ECE8E1;
+  margin :0;
+  font-size : 1.2em;
+  font-family : Valorant;
+  text-decoration: none;
+  z-index: 2;
+}
+
+a{
+    color : white;
+    text-decoration :none;
+}
+
+a:hover{
+    text-decoration : none;
+}
+
+}
+
+@media screen and (max-width: 768px){
+    .background{
+    position : absolute;
+    height : 100%;
+    width : 100%;
+    object-fit : cover;
+}
+
+
+.card{
+    height : 100px;
+    width : 100px;
+    position : relative;
+
+    display :flex;
+    justify-content : center;
+    align-items : center;
+
+    margin : 1%;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  
+  text-decoration: none;
+  z-index: 1;
+}
+
+
+.cardName {
+  color:  #ECE8E1;
+  margin :0;
+  font-size : 1em;
+  font-family : Valorant;
+  text-decoration: none;
+  z-index: 2;
+}
+
+a{
+    color : white;
+    text-decoration :none;
+}
+
+a:hover{
+    text-decoration : none;
+}
+
 }
 
 

@@ -53,7 +53,8 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
         methods : {
             getWeapons(){
                 const promise = getWeaponsData();
-                promise.then((result) => this.weapons = result.data.sort((a,b)=> a.category.localeCompare(b.category)))
+                const comparator = (a,b)=> a.category.localeCompare(b.category);
+                promise.then((result) => this.weapons = result.data.sort(comparator));
             
             }
         }
@@ -62,8 +63,11 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 </script>
 
 <style scoped>
+
+@media screen and (max-width: 960px) {
 .top-section{
-    margin: 0;
+    margin-top : 40px;
+    margin-bottom : 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -84,11 +88,49 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 
 .weapon-cards{
     display : flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
     justify-content : center;
-    margin-bottom : 50px;
+    margin-bottom : -1px;
 }
 
+.title{
+    margin :0;
+}
+}
+
+
+@media screen and (max-width: 767px) {
+
+    .top-section{
+    margin-top : 40px;
+    margin-bottom : 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weapon-section{
+    overflow : hidden;
+}
+
+.img-box{
+    width: 100vw;
+    height: 70vh;
+    background-image: url("../assets/Arsenal-img.png");
+    background-size: cover;
+}
+
+
+.weapon-cards{
+    margin-bottom : -1px;
+}
+
+.title{
+    margin :0;
+}
+}
 
 
 </style>
