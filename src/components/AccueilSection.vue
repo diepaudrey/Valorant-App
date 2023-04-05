@@ -1,6 +1,6 @@
 <template> 
     <section class = "main-section">
-        <div class="img"></div>
+        <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
         <div class="accueil-content">
             <h1 class="title"> Presentation </h1>
 
@@ -39,6 +39,11 @@ import NavCard from './NavCard.vue'
     name: 'MainSection',
     components: {
         NavCard, 
+    },
+    data(){
+        return {
+            headerImg: require('../assets/main-img.jpg')
+        }
     }
     
 }
@@ -52,16 +57,6 @@ import NavCard from './NavCard.vue'
 }
 
 
-
-.img{
-    width : 100 vw;
-    height : 70vh;
-    background-image : url("../assets/main-img.jpg");
-    background-size : cover;
-}
-
-
-
 .navCards{
     display : flex;
     flex-direction : row;
@@ -69,23 +64,11 @@ import NavCard from './NavCard.vue'
     padding : 5%;
 }
 
-.title{
-    padding : 2%;
-    margin-right : 60%;
-    font-family : Valorant;
-    font-size : 4em;
-    color :  #111;
-}
 
 .router{
     text-decoration: none;
 }
-.img{
-    width : 100vw;
-    height : 70vh;
-    background-image : url("../assets/main-img.jpg");
-    background-size : cover;
-}
+
 }
 
 
@@ -122,12 +105,6 @@ import NavCard from './NavCard.vue'
     text-decoration: none;
 }
 
-.img{
-    width : 100%;
-    height : 40vh;
-    background-image : url("../assets/main-img.jpg");
-    background-size : cover;
-}
 }
 
 
@@ -150,12 +127,6 @@ import NavCard from './NavCard.vue'
     padding : 2%;
 }
 
-.img{
-    width : 100vw;
-    height : 70vh;
-    background-image : url("../assets/main-img.jpg");
-    background-size : cover;
-}
 
 
 
@@ -166,22 +137,9 @@ import NavCard from './NavCard.vue'
     padding : 5%;
 }
 
-.title{
-    padding : 2%;
-    margin-right : 60%;
-    font-family : Valorant;
-    font-size : 2em;
-    color :  #111;
-}
 
 .router{
     text-decoration: none;
-}
-.img{
-    width : 100%;
-    height : 40vh;
-    background-image : url("../assets/main-img.jpg");
-    background-size : cover;
 }
 }
 

@@ -1,10 +1,9 @@
 <template> 
-    <!-- <div class="container"> -->
-        <div class="weapon-box">
-            <img class="weapon-img" v-bind:src="weaponImg" alt="Weapon image" >
-            <p class="weapon-name"> {{weaponName}} </p>
-        </div>
-    <!-- </div> -->
+    <div class="weapon-card">
+        <img class="weapon-img" v-bind:src="weaponImg" alt="Weapon image" >
+        <p class="weapon-name"> {{weaponName}} </p>
+    </div>
+   
 </template>
 
 <script>
@@ -17,8 +16,6 @@
             weaponName : String,
             weaponImg : String,
         } 
-
-
     }
 
 
@@ -26,20 +23,18 @@
 
 
 <style scoped>
-@media screen and (max-width: 960px) {
-.container{
-    width: 100%;
-    height: 100%;
+@media screen and (min-width: 1024px) {
+
+.weapon-card{
+    /*set flexbox*/ 
     display : flex;
-   
-}
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : center;
 
-
-.weapon-box{
-    flex: 49%;
-    width: 400px;
+    /*set size & border card*/
+    width: 80%;
     height: 250px;
-    /* height: v-bind(test)px; */
     border : 1px solid #BDBAB4;
 
 }
@@ -52,42 +47,67 @@
 .weapon-name{
     font-size: 1.5em;
     color: #111;
-}
+    margin : 0;
+}   
 
 }
 
-
-@media screen and (max-width: 767px) {
-/* .container{
-    width: 50vw;
-    height: 10vh;
-    display : flex;
-
-} */
-
-
-.weapon-box{
+@media screen and (min-width: 768px) and (max-width:1023px){
+    .weapon-card{
+    /*set flexbox*/ 
     display : flex;
     flex-direction : column;
-    align-items: center;
-    justify-content: center;
+    justify-content : space-around;
+    align-items : center;
 
-    width: 150px;
-    height: 150px;
-    /* border : 1px solid #BDBAB4; */
-    
+    /*set size & border card*/
+    width: 80%;
+    height: 250px;
+    border : 1px solid #BDBAB4;
 
 }
 
 .weapon-img {
-    height: auto;
-    width :150px;
-    
+    height: 50%;
+    width : auto;
+}
+
+.weapon-name{
+    font-size: 1.5em;
+    color: #111;
+    margin : 0;
+}   
+}
+
+
+@media screen and (max-width: 767px) {
+
+.weapon-card{
+    /*set flexbox*/ 
+    display : flex;
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : center;
+
+    /*set size & border card*/
+    width: 60%;
+    height: 100px;
+    border : 1px solid #BDBAB4;
+
+}
+
+.weapon-img {
+    flex-shrink:0;
+    -webkit-flex-shrink: 0;
+    max-width:70%;
+    max-height:60%;
+
 }
 
 .weapon-name{
     font-size: 0.8em;
     color: #111;
+    margin :0;
 }
 
 }

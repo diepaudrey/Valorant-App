@@ -1,6 +1,6 @@
 <template>
     <section class="weapon-section">
-        <div class="img-box"></div>
+        <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
         <div class="infoContainer">
             
@@ -35,7 +35,8 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
         data(){
             return {
                 weapons : [],
-                search : ""
+                search : "",
+                headerImg : require('../assets/arsenal.png')
             };
         },
 
@@ -64,7 +65,7 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 
 <style scoped>
 
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 1024px) {
 .top-section{
     margin-top : 40px;
     margin-bottom : 20px;
@@ -78,12 +79,35 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
     overflow : hidden;
 }
 
-.img-box{
-    width: 100vw;
-    height: 70vh;
-    background-image: url("../assets/Arsenal-img.png");
-    background-size: cover;
+
+
+.weapon-cards{
+    display : flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content : center;
+    margin-bottom : -1px;
 }
+
+.title{
+    margin :0;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px){
+    .top-section{
+    margin-top : 40px;
+    margin-bottom : 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weapon-section{
+    overflow : hidden;
+}
+
 
 
 .weapon-cards{
@@ -101,7 +125,6 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 
 
 @media screen and (max-width: 767px) {
-
     .top-section{
     margin-top : 40px;
     margin-bottom : 20px;
@@ -112,18 +135,16 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 }
 
 .weapon-section{
-    overflow : hidden;
+    margin-bottom : 50px;
 }
 
-.img-box{
-    width: 100vw;
-    height: 70vh;
-    background-image: url("../assets/Arsenal-img.png");
-    background-size: cover;
-}
 
 
 .weapon-cards{
+    display : flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content : center;
     margin-bottom : -1px;
 }
 

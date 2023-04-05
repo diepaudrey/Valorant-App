@@ -1,7 +1,7 @@
 <template>
     <section class="mapSection">
 
-        <div class="map-img"></div>
+        <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
         <div class="infoContainer">
             <div class="header-section">
@@ -45,7 +45,7 @@ import { getMapsData } from '@/services/api/weaponsAPI';
             return {
                 maps : [],
                 search: "",
-                // mapsSortType: "AZName"
+                headerImg: require('../assets/map_lotus.png')
             };
         },
 

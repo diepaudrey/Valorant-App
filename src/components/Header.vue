@@ -4,8 +4,8 @@
             <img class="valorant-logo" src="../assets/valorant-logo.svg" alt="valorant-logo">
             <ul class="ul-container">
                 <li><router-link :to="{name: 'homepage'}"> Accueil </router-link></li>
-                <li><router-link :to="{name: 'weapons'}"> Arsenal</router-link></li>
                 <li><router-link :to="{name: 'agents'}">Agents</router-link></li>
+                <li><router-link :to="{name: 'weapons'}"> Arsenal</router-link></li>
                 <li><router-link :to="{name: 'maps'}">Cartes</router-link></li>
             </ul>
         </nav>
@@ -26,10 +26,12 @@
 
 @media screen and (min-width: 1024px) {
 .valorant-logo {
-    width: 3%;
+    position: relative;
+    width: 2%;
     height : auto;
     padding : 20px;
     margin-right : auto;
+    z-index: 1;
 }
 
 .header {
@@ -42,22 +44,37 @@
     
 
 .navbar{
+    position: relative;
+
     background-color: #111;
-    display : flex;
-    flex-direction : row;
-    justify-content : space-around;
-    align-items: center;
     width: 100%;
     height: 75px;
+
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    align-items: center;
+    
 }
 
 
 .ul-container {
+    /*full navbar width*/
+    width : 100%;
+
+    /*set flexbox*/
     display :flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+
+    /*set margins & padding*/
     margin-right : auto;
     margin-left : 0;
+    padding : 0;
+
+    /*change z-index */
+    position: absolute;
+    z-index: 0;
 }
 
 li{
@@ -88,12 +105,14 @@ a:hover{
 @media screen and  (min-width: 768px) and (max-width: 1023px) {
 .valorant-logo {
     margin-left: 20px;
-    width: 30px;
+    width: 5%;
     height : auto;
+
+    position: relative;
+    z-index: 1;
 }
 
-/* .header {
-} */
+
 
 .navbar{
     background-color: #111;
@@ -107,10 +126,14 @@ a:hover{
 
 
 .ul-container {
-    
+    position: absolute;
     display :flex;
     flex-direction: row;
-    margin-right: 25%;
+    justify-content: center;
+    padding : 0;
+    margin :0;
+    width : 100%;
+    z-index: 0;
     
 }
 
@@ -143,12 +166,10 @@ a:hover{
 @media screen and (max-width: 768px) {
 .valorant-logo {
     margin-left: 2%;
-    width: 2.5vh;
+    width: 5%;
     height : auto;
 }
 
-/* .header {
-} */
 
 .navbar{
     background-color: #111;
