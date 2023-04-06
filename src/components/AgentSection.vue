@@ -3,8 +3,15 @@
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
         <div class="infoContainer">
-            <h1 class="title"> Agents </h1>
-            <!-- <h2 class="agent-type"> Type d'agent </h2> -->
+            <div class="header-section">
+                <h1 class="title"> Agents </h1>
+
+                <div class="search-bar">
+                        <input type="text" v-model="search" placeholder="Chercher un agent">
+                        
+                </div>
+            </div>
+
 
             <div class="agent-cards">
                 <div v-for="(agent, index) in agents" :key="index">
@@ -65,6 +72,7 @@ import { getAgentsData } from '@/services/api/weaponsAPI.js'
     flex-direction : row;
     justify-content: center;
     flex-wrap: wrap;
+    
 }
 
 .infoContainer{

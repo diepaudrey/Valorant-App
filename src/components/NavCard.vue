@@ -25,15 +25,15 @@
 @media screen and (min-width:1024px){
     .background{
     position : absolute;
-    height : 200px;
-    width : 200px;
+    height : 100%;
+    width : 100%;
     object-fit : cover;
 }
 
 
 .card{
-    height : 200px;
-    width : 200px;
+    height : 15vw;
+    width : 15vw;
     position : relative;
 
     display :flex;
@@ -60,7 +60,7 @@
 .cardName {
   color:  #ECE8E1;
   margin :0;
-  font-size : 2em;
+  font-size : 2vw;
   font-family : Valorant;
   text-decoration: none;
   z-index: 2;
@@ -87,8 +87,8 @@ a:hover{
 
 
 .card{
-    height : 150px;
-    width : 150px;
+    height : 25vw;
+    width : 25vw;
     position : relative;
     display :flex;
     justify-content : center;
@@ -114,7 +114,7 @@ a:hover{
 .cardName {
   color:  #ECE8E1;
   margin :0;
-  font-size : 1.2em;
+  font-size : 3vh;
   font-family : Valorant;
   text-decoration: none;
   z-index: 2;
@@ -141,15 +141,15 @@ a:hover{
 
 
 .card{
-    height : 100px;
-    width : 100px;
+    height : 30vw;
+    width : 30vw;
     position : relative;
 
     display :flex;
     justify-content : center;
     align-items : center;
 
-    margin : 1%;
+    margin : 1vw;
 }
 
 .card::before {
@@ -169,7 +169,7 @@ a:hover{
 .cardName {
   color:  #ECE8E1;
   margin :0;
-  font-size : 1em;
+  font-size : 4vw;
   font-family : Valorant;
   text-decoration: none;
   z-index: 2;

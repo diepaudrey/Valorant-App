@@ -29,7 +29,7 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 
-    height : 200px;
+    height : 15vh;
     color: white;
 }
 
@@ -49,7 +49,7 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 
-    height : 100px;
+    height : 10vh;
     color: white;
 }
 .text{
@@ -70,11 +70,11 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 
-    height : 50px;
+    height : 10vh;
     color: white;
 }
 .text{
-    font-size: 8px;
+    font-size: 2vw;
 }
 
 

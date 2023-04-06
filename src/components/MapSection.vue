@@ -1,15 +1,14 @@
 <template>
-    <section class="mapSection">
+    <section class="map-section">
 
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
-        <div class="infoContainer">
+        <div class="main-content">
             <div class="header-section">
-                <h2 class="title"> Cartes </h2>
+                <h1 class="title"> Cartes </h1>
 
                 <div class="search-bar">
                     <input type="text" v-model="search" placeholder="Chercher une carte">
-                    
                 </div>
 
             </div>
@@ -76,38 +75,3 @@ import { getMapsData } from '@/services/api/weaponsAPI';
     }
 </script>
 
-
-<style scoped>
-
-.header-section {
-    display : flex;
-    flex-direction : row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top : 40px;
-}
-
-.map-cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom:2em;
-}
-
-.map-img {
-    width : 100 vw;
-    height : 70vh;
-    background-image : url("https://cdn.oneesports.gg/cdn-data/2023/01/Valorant_Lotus_Episode6ActI_Map_4.jpg");
-    background-size : cover;
-}
-
-img{
-    object-fit : cover;
-   
-}
-
-.title{
-    margin :0;
-}
-
-</style>

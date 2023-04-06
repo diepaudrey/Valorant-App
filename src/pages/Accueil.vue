@@ -1,12 +1,7 @@
 <template>
-    <body class="page">
         <HeaderSection/>
         <MainSection/>
         <FooterSection/>
-    </body>
-       
-   
-    
 </template>
 
 <script>
@@ -25,5 +20,8 @@ import FooterSection from '../components/Footer.vue'
     }
 </script>
 
+<style scoped>
 
+
+</style>
 

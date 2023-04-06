@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style>
-
 @font-face {
 	font-family: 'Valorant';
 	src: url('~/src/assets/Valorant_Font.ttf') format('truetype')
@@ -54,7 +53,13 @@ body{
   margin :0;
   padding : 0;
   background-color: #ECE8E1;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
+
 }
+
 
 /* h3{
   font-family: 'Valorant';
@@ -73,12 +78,14 @@ h2{
 
 @media screen and (min-width:1024px){
 
+
 .title{
-    padding : 2%;
     margin-right : 60%;
     font-family : Valorant;
     font-size : 3.5em;
     color :  #111;
+    margin :0;
+    padding : 0;
 }
 
 
@@ -88,17 +95,41 @@ h2{
     background-size : cover;
     background-position: center;
 }
+
+input{
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #878582;
+  outline: 0;
+  font-size: 1rem;
+  color: #878582;
+  padding: 7px 0;
+  background: transparent;
+}
+
+/*Style the title and search bar of every pages*/
+.header-section {
+    display : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top : 5vh;
+    margin-bottom: 5vh;
+}
+
+
 }
 
 
 
 @media screen and (min-width: 768px) and (max-width:1023px){
   .title{
-    padding : 2%;
-    margin-right : 60%;
     font-family : Valorant;
-    font-size : 3em;
+    font-size : 2.5em;
     color :  #111;
+    margin :0;
+    padding : 0;
+
 }
 
 
@@ -107,6 +138,27 @@ h2{
     height : 40vh;
     background-size : cover;
     background-position: center;
+}
+
+input{
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #878582;
+  outline: 0;
+  font-size: 1rem;
+  color: #878582;
+  padding: 7px 0;
+  background: transparent;
+}
+
+/*Style the title and search bar of every pages*/
+.header-section {
+    display : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top : 3vh;
+    margin-bottom: 3vh;
 }
 }
 
@@ -117,8 +169,11 @@ h2{
     padding : 2%;
     margin-right : 60%;
     font-family : Valorant;
-    font-size : 1.5em;
+    font-size : 7vw;
     color :  #111;
+    margin :0;
+    padding : 0;
+    
 }
 
   .img-header{
@@ -126,6 +181,27 @@ h2{
     height : 30vh;
     background-size : cover;
     background-position: center;
+}
+
+input{
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid #878582;
+  outline: 0;
+  font-size: 2.7vw;
+  color: #878582;
+  padding: 1v 0;
+  background: transparent;
+}
+
+/*Style the title and search bar of every pages*/
+.header-section {
+    display : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top : 3vh;
+    margin-bottom: 3vh;
 }
 }
 

@@ -2,7 +2,7 @@
     <section class = "main-section">
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
         <div class="accueil-content">
-            <h1 class="title"> Presentation </h1>
+            <h1 class="title-homepage"> Presentation </h1>
 
             <div class="text-presentation">
                 <p> Ce site a été crée dans le cadre d’un projet étudiant au cours de la formation IMAC. 
@@ -53,7 +53,15 @@ import NavCard from './NavCard.vue'
 <style scoped>
 @media screen and (min-width:1024px){
     .text-presentation{
-    font-size: 1.2em;
+    font-size: 1.2vw;
+}
+
+.title-homepage{
+    padding : 2%;
+    margin-right : 60%;
+    font-family : Valorant;
+    font-size : 3em;
+    color :  #111;
 }
 
 
@@ -76,15 +84,9 @@ import NavCard from './NavCard.vue'
 
 
 @media screen and (min-width: 768px) and (max-width:1023px){
-    .text-presentation{
-    font-size: 1.1em;
+.text-presentation{
+    font-size: 2.2vw;
 }
-
-
-.main-section {
-    background-color : #ECE8E1; 
-}
-
 
 .navCards{
     display : flex;
@@ -93,7 +95,7 @@ import NavCard from './NavCard.vue'
     padding : 5%;
 }
 
-.title{
+.title-homepage{
     padding : 2%;
     margin-right : 60%;
     font-family : Valorant;
@@ -111,23 +113,23 @@ import NavCard from './NavCard.vue'
 
 
 
-
-
 @media screen and (max-width:767px){
     .text-presentation{
-    font-size: 0.8em;
-}
-
-
-.main-section {
-    background-color : #ECE8E1;
+    font-size: 3vw;
+    margin : 0.2vw;
 }
 
 .accueil-content{
-    padding : 2%;
+    height: 100vw;
 }
 
-
+.title-homepage{
+    padding : 2%;
+    margin-right : 60%;
+    font-family : Valorant;
+    font-size : 7vw;
+    color :  #111;
+}
 
 
 .navCards{

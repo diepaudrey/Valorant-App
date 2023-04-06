@@ -66,6 +66,7 @@
     display :flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
     /*set margins & padding*/
     margin-right : auto;
@@ -134,6 +135,8 @@ a:hover{
     margin :0;
     width : 100%;
     z-index: 0;
+
+    align-items: center;
     
 }
 
@@ -165,7 +168,7 @@ a:hover{
 
 @media screen and (max-width: 768px) {
 .valorant-logo {
-    margin-left: 2%;
+    margin-left: 3%;
     width: 5%;
     height : auto;
 }
@@ -173,7 +176,7 @@ a:hover{
 
 .navbar{
     background-color: #111;
-    height: 50px;
+    height: 5%;
     display : flex;
     flex-direction : row;
     justify-content : space-between;
@@ -199,7 +202,7 @@ li{
     margin : 5%;
     color : white;
     list-style-type: none;
-    font-size: 80%;
+    font-size: 3vw;
     
 }
 

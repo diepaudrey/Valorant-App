@@ -1,7 +1,9 @@
 <template>
-    <div class="info-container">
-        <h2 class="map-name"> {{mapName}} </h2>
-        <div class="map-card" v-bind:style="{ 'background-image': 'url(' + mapImg + ')' }"></div>
+    <div class="map-card">
+        <div class="info-container">
+            <h2 class="map-name"> {{mapName}} </h2>
+            <div class="map-img" v-bind:style="{ 'background-image': 'url(' + mapImg + ')' }"></div>
+        </div>
     </div>
 
 </template>
@@ -19,26 +21,116 @@
 </script>
 
 <style scoped>
+@media screen and (min-width:1024px){
 .info-container {
+    height: 40vh;
+    width : 100%;
+
     display : flex;
     flex-direction : column;
-    align-items : center;
-    margin : 10px;
-}
+    align-items : flex-start;
+    justify-content: space-evenly;
 
-.map-card {
-    width : 60vw;
+    margin: 0 auto;
+
+}
+.map-card{
+    border : 1px solid #BDBAB4;
+
+    width: 70vw; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+.map-img{
+    width : 100%;
     height : 30vh;
-    background-image: url('https://prod.assets.earlygamecdn.com/images/lotus.jpg?mtime=1673030420');
     background-size: cover;
-    background-position: center;
+    background-position: top 40% center;
 }
 
 .map-name{
-    margin-left: 10%;
     font-family: Valorant;
     font-size: 2em;
     color : #111;
+    margin:0;
 }
+}
+
+
+@media screen and (min-width: 768px) and (max-width:1023px){
+    .info-container {
+    height: 40vh;
+    width : 100%;
+
+    display : flex;
+    flex-direction : column;
+    align-items : flex-start;
+    justify-content: space-evenly;
+
+    margin: 0 auto;
+
+}
+.map-card{
+    border : 1px solid #BDBAB4;
+
+    width: 80vw; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+.map-img{
+    width : 100%;
+    height : 30vh;
+    background-size: cover;
+    background-position: top 40% center;
+}
+
+.map-name{
+    font-family: Valorant;
+    font-size: 1.5em;
+    color : #111;
+    margin:0;
+}
+}
+
+
+@media screen and (max-width:767px){
+    .info-container {
+    height: 30vh;
+    width : 100%;
+
+    display : flex;
+    flex-direction : column;
+    align-items : flex-start;
+    justify-content: space-evenly;
+
+    margin: 0 auto;
+
+}
+.map-card{
+    border : 1px solid #BDBAB4;
+
+    width: 90vw; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+.map-img{
+    width : 100%;
+    height : 20vh;
+    background-size: cover;
+    background-position: top 40% center;
+}
+
+.map-name{
+    font-family: Valorant;
+    font-size: 5vw;
+    color : #111;
+    margin:0;
+}
+}
+
+
 
 </style>

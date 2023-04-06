@@ -90,7 +90,7 @@
     align-items : center;
 
     /*set size & border card*/
-    width: 60%;
+    width: 80%;
     height: 100px;
     border : 1px solid #BDBAB4;
 

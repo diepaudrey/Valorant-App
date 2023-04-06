@@ -4,8 +4,8 @@
 
         <div class="infoContainer">
             
-            <div class="top-section">
-                <h2 class="title"> Arsenal </h2>
+            <div class="header-section">
+                <h1 class="title"> Arsenal </h1>
 
                 <div class="search-bar">
                         <input type="text" v-model="search" placeholder="Chercher une arme">
@@ -89,9 +89,6 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
     margin-bottom : -1px;
 }
 
-.title{
-    margin :0;
-}
 }
 
 @media screen and (min-width: 768px) and (max-width:1023px){
