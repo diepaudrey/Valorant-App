@@ -29,15 +29,19 @@ export default {
 </script>
 
 <style>
+/*define colors*/
+:root{
+  --grey-border :#BDBAB4;
+  --dark-blue : #0F1923;
+}
+
 @font-face {
 	font-family: 'Valorant';
 	src: url('~/src/assets/Valorant_Font.ttf') format('truetype')
 }
 
-@font-face {
-	font-family: 'Tw Cen MT';
-	src: url('~/src/assets/TwCenClassMTStd-Regular.otf') format('truetype')
-}
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;700&display=swap');
+
 
 
 #app {

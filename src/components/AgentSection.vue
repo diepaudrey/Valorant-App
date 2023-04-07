@@ -2,6 +2,8 @@
     <section class="agent-section">
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
+        <AgentDetailedSection></AgentDetailedSection>
+
         <div class="infoContainer">
             <div class="header-section">
                 <h1 class="title"> Agents </h1>
@@ -27,12 +29,13 @@
  /* eslint-disable */
 import AgentCard from './AgentCard.vue'
 import { getAgentsData } from '@/services/api/weaponsAPI.js'
+import AgentDetailedSection from './AgentDetailedSection.vue';
 
     export default{
         name : 'AgentSection',
 
         components : {
-            AgentCard,
+            AgentCard, AgentDetailedSection
 
         },
         data(){
