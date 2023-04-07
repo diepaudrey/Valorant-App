@@ -21,25 +21,26 @@ export default {
 
 @media screen and (min-width:1024px){
 .container {
-    width : 250px;
-    height : 250px;
+    /* width : 25vw;
+    height : 50px; */
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: center;
-    border : 1px solid #BDBAB4;
 
 }
 
 .agent-name{
-    font-size: 1.5em;
-    color: #111;
+    font-family: 'Hind', sans-serif;
+    font-size : 1vw;
+    font-weight: 300;
+    color : var(--grey-border);
 }
 
 .agent-div{
-    width: 150px;
-    height: 150px;
-    margin-top : 20px;
+    width: 3vw;
+    height: 3vw;
+    /* margin-top : 20px; */
 
     background-size: cover;
 
@@ -67,9 +68,10 @@ export default {
 }
 
 .agent-name{
-    font-size: 1.5em;
-    color: #111;
-    margin :0;
+    font-family: 'Hind', sans-serif;
+    font-size : 1vw;
+    font-weight: 300;
+    color : var(--grey-border);
 }
 
 .agent-div{

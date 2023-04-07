@@ -1,31 +1,36 @@
 <template>
     <section class="agent-section">
-        <div class="agent-img" v-bind:style="{ 'background-image': 'url(' + agentImg + ')' }"></div>
+        <div class="agent-img" v-bind:style="{ 'background-image': 'url(' + agent.fullPortrait + ')' }"></div>
         <div class="agent-description">
 
-            <div class="name"> {{ agentName }}</div>
+            <div class="name"> {{ agent.displayName }}</div>
 
 
             <div class="info-container">
 
                 <div class="role-container">
                     <p class="category"> -Rôle-</p>
-                    <p class="text-role">{{ agentRole }}</p>
+                    <p class="text-role">{{ agent.role.displayName }}</p>
                 </div>
                 
                 <div class="bio-container">
                     <p class="category">-Biographie-</p>
-                    <p class="text-bio"> {{ agentBio }}</p>
+                    <p class="text-bio"> {{ agent.description }}</p>
                 </div>
             </div>
 
             <div class="spells-box">
-                <div class="spells-container">
-                <p class="category"> -Kit-</p>
-                <p class="text-role">Compétences</p>
-            </div>
 
-
+                <div class="text-spells">
+                    <p class="category"> -Kit-</p>
+                    <p class="text-role">Compétences</p>
+                </div>
+                    
+                    <div class="spells-container">
+                        <div class="ability" v-for="(ability, index) in agent.abilities" :key="index">
+                            <AbilityCard v-if="agent.isPlayableCharacter" :agentName="ability.displayName" :agentImg="ability.displayIcon" />
+                        </div>
+                    </div>
             </div>
             
         </div>
@@ -36,17 +41,18 @@
 </template>
 
 <script>
+import AbilityCard from './AbilityCard.vue'
+
 export default{
     name : 'AgentDetailedSection',
-    // props : ["agentName", "agentImg", "agentRole", "agentBio"]
-    props : {
-        agentName :{type: String, default: "Fade"},
-        agentRole : {type: String, default: "Initiator"},
-        agentBio :  {type : String, default : "Turkish bounty hunter Fade unleashes the power of raw nightmare to seize enemy secrets. Attuned with terror itself, she hunts down targets and reveals their deepest fears - before crushing them in the dark.",},
-        agentImg : {type : String, default : "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png"},
-        
-    }
+    components : {
+        AbilityCard,
+    },
+    props : ["agent"],
+    
 }
+
+
 </script>
 
 <style scoped>
@@ -64,7 +70,7 @@ export default{
 
     /*set section size and border*/
     border : 1px solid var(--grey-border);
-    width: 80vw;
+    width: 85vw;
     height: 60%;
 
     color: #ECE8E1;
@@ -116,20 +122,30 @@ export default{
 }
 
 .spells-container{
-   
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1vw;
+    flex-direction: row;
+    margin-top : 2vw;
+    
    
 }
 .spells-box{
-    width : 100%;
-    height : 10vw;
+
     background-color: var(--dark-blue) ;
+    margin-top : 1.5vw;
 
 }
+ .text-spells{
+    padding-left: 2vw;
+    padding-top: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+ }
 
+.ability{
+    width : 10vw;
+    height : auto;
+}
 
 .name{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

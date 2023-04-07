@@ -44,5 +44,3 @@ const getMapsData = async function () {
 }
 
 export { getMapsData }
-
-

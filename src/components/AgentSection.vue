@@ -2,7 +2,10 @@
     <section class="agent-section">
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
-        <AgentDetailedSection></AgentDetailedSection>
+        <div v-for="(agent, index) in agents" :key="index" >
+           <AgentDetailedSection v-if="agent.isPlayableCharacter" :agent="agent" />
+        </div>
+       
 
         <div class="infoContainer">
             <div class="header-section">
@@ -40,7 +43,6 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
         },
         data(){
             return {
-                // headerImg: '../assets/agents.jpg',
                 agents : [],
                 headerImg: require('../assets/agents.jpg'),
                 
@@ -53,8 +55,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 
         methods : {
             getAgents(){
-                const promise = getAgentsData();
-                promise.then((result) => this.agents = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
+                getAgentsData().then((result) => this.agents = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
             
             }
         }
