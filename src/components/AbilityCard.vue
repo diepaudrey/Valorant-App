@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <div class="agent-div" v-bind:style="{ 'background-image': 'url(' + agentImg + ')' }">
+        <div class="ability-div" v-bind:style="{ 'background-image': 'url(' + abilityImg + ')' }">
         </div>
-        <p class="agent-name"> {{agentName}} </p>
+        <p class="ability-name"> {{abilityName}} </p>
     </div>
     
     
@@ -10,8 +10,8 @@
 
 <script>
 export default {
-    name : 'AgentCard',
-    props : ["agentName", "agentImg"],
+    name : 'AbilityCard',
+    props : ["abilityName", "abilityImg"],
 
 }
 </script>
@@ -21,8 +21,6 @@ export default {
 
 @media screen and (min-width:1024px){
 .container {
-    /* width : 25vw;
-    height : 50px; */
     display : flex;
     flex-direction : column;
     align-items : center;
@@ -30,14 +28,14 @@ export default {
 
 }
 
-.agent-name{
+.ability-name{
     font-family: 'Hind', sans-serif;
     font-size : 1vw;
     font-weight: 300;
     color : var(--grey-border);
 }
 
-.agent-div{
+.ability-div{
     width: 3vw;
     height: 3vw;
     /* margin-top : 20px; */
@@ -50,33 +48,27 @@ export default {
 }
 @media screen and (min-width: 768px) and (max-width:1023px){
 .container {
-    /*set size of the container*/
-    width : 200px;
-    height : 200px;
-    padding : 10px;
-
     /*set flexbox*/ 
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: space-around;
 
-    /*set grey border*/
-    border : 1px solid #BDBAB4;
+    padding : 10px;
     
     
 }
 
-.agent-name{
+.ability-name{
     font-family: 'Hind', sans-serif;
     font-size : 1vw;
     font-weight: 300;
     color : var(--grey-border);
 }
 
-.agent-div{
-    width: 150px;
-    height: 150px;
+.ability-div{
+    width: 50px;
+    height: 50px;
     background-size: cover;
 
 }
@@ -102,14 +94,14 @@ export default {
     
 }
 
-.agent-name{
+.ability-name{
     font-size: 1em;
     color: #111;
     margin-top :5px;
     margin-bottom: 0;
 }
 
-.agent-div{
+.ability-div{
     width: 80%;
     height: 80%;
     background-size: cover;
