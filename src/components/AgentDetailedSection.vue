@@ -179,7 +179,7 @@ export default{
 }
 }
 
-@media screen and (min-width:768px) and (max-width:1023px){
+@media screen and (min-width:767px) and (max-width:1023px){
     .agent-section{
     /*flexbox*/
     display: flex;

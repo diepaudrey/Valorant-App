@@ -91,7 +91,7 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 
 }
 
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
     .top-section{
     margin-top : 40px;
     margin-bottom : 20px;

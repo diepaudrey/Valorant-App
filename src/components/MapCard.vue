@@ -58,7 +58,7 @@
 }
 
 
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
     .info-container {
     height: 40vh;
     width : 100%;

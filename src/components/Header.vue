@@ -103,7 +103,7 @@ a:hover{
 
 
 
-@media screen and  (min-width: 768px) and (max-width: 1023px) {
+@media screen and  (min-width: 767px) and (max-width: 1023px) {
 .valorant-logo {
     margin-left: 20px;
     width: 5%;
@@ -166,7 +166,7 @@ a:hover{
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 .valorant-logo {
     margin-left: 3%;
     width: 5%;

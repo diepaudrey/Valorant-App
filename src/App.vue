@@ -58,26 +58,8 @@ body{
   padding : 0;
   background-color: #ECE8E1;
 
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; */
-
 }
 
-
-/* h3{
-  font-family: 'Valorant';
-  font-size: 2em;
-  color : #111;
-}
-
-h2{
-    margin-bottom :0;
-    margin-right : 60%;
-    font-family : Valorant;
-    font-size : 3em;
-    color :  #111;
-} */
 
 
 @media screen and (min-width:1024px){
@@ -126,7 +108,7 @@ input{
 
 
 
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
   .title{
     font-family : Valorant;
     font-size : 2.5em;

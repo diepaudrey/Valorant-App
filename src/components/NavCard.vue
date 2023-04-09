@@ -77,7 +77,7 @@ a:hover{
 
 }
 
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
 .background{
     position : absolute;
     height : 100%;
@@ -131,7 +131,7 @@ a:hover{
 
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
     .background{
     position : absolute;
     height : 100%;
