@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import * as VueRouter from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import App from './App.vue'
 
 import Accueil from "./pages/Accueil.vue"
@@ -15,8 +15,8 @@ const routes = [
     { path: '/agents', component : Agents, name: "agents"}
 ]
 
-const router = VueRouter.createRouter({
-    history : VueRouter.createWebHashHistory(),
+const router = createRouter({
+    history : createWebHashHistory(),
     routes,
     scrollBehavior() {
         //always scroll to top

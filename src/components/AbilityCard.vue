@@ -77,33 +77,25 @@ export default {
 @media screen and (max-width:767px){
 
     .container {
-    /*set size of the container*/
-    width : 115px;
-    height : 115px;
-    padding : 2px;
-
     /*set flexbox*/ 
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: space-around;
 
-    /*set grey border*/
-    border : 1px solid #BDBAB4;
-    
-    
+    padding : 2px;
 }
 
 .ability-name{
-    font-size: 1em;
-    color: #111;
+    font-size: 3vw;
+    color : var(--grey-border);
     margin-top :5px;
     margin-bottom: 0;
 }
 
 .ability-div{
-    width: 80%;
-    height: 80%;
+    width: 7vw;
+    height: 7vw;
     background-size: cover;
 
 }

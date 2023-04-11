@@ -2,6 +2,8 @@
     <section class="agent-section">
         <div class="agent-img" v-bind:style="{ 'background-image': 'url(' + agent.fullPortrait + ')' }"></div>
 
+        <div class="closing-arrow"></div>
+
         <div class="agent-description">
 
             <div class="name"> {{ agent.displayName }}</div>
@@ -177,6 +179,10 @@ export default{
     font-weight: 300;
     color : var(--grey-border);
 }
+/* .closing-arrow{
+    background-image: url("../assets/closing-logo.svg");
+    background-size: cover;
+} */
 }
 
 @media screen and (min-width:767px) and (max-width:1023px){
@@ -305,23 +311,23 @@ export default{
     .agent-section{
     /*flexbox*/
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
     /*set section size and border*/
     border : 1px solid var(--grey-border);
-    width: 85vw;
-    height: 60%;
-
+    width: 90vw;
+    height: 100%;
+    padding-left : 2vw;
     color: #ECE8E1;
 
 
 
 }
 .agent-img{
-    height: 50vw;
-    width : 30vw;
+    height: 100vw;
+    width : 100%;
     background-size : cover;
     background-position: center;
 }
@@ -339,7 +345,7 @@ export default{
     justify-content: space-between;
 
     /*set size of div*/
-    width : 45vw;
+    width : 95%;
     height : auto;
 
     background-color: var(--dark-blue) ;
@@ -365,12 +371,16 @@ export default{
 .spells-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     margin-top : 2vw;
     
    
 }
 .spells-box{
-
+    
+    display : flex;
+    flex-direction: column;
+    width : 95%;
     background-color: var(--dark-blue) ;
     margin-top : 1.5vw;
     margin-bottom : 1.5vw;
@@ -392,13 +402,13 @@ export default{
 
 .name{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size : 3vw;
+    font-size : 8vw;
     color :#0F1923;
 }
 
 .text-role{
     font-family : Impact, 'Arial Narrow';
-    font-size : 3vw;
+    font-size : 5vw;
 
     padding-left : 1vw;
     padding-right : 1vw;
@@ -409,7 +419,7 @@ export default{
 .text-bio{
     margin:0;
     font-family: 'Hind', sans-serif;
-    font-size : 1.5vw;
+    font-size : 4vw;
 
 }
 
@@ -417,7 +427,7 @@ export default{
 .category{
     margin:0;
     font-family: 'Hind', sans-serif;
-    font-size : 1vw;
+    font-size : 3vw;
     font-weight: 300;
     color : var(--grey-border);
 }

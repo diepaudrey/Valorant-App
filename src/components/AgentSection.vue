@@ -16,13 +16,13 @@
             </div>
 
             <div class="selectedAgent">
-                <AgentDetailedSection v-if="selectedAgent" :agent="selectedAgent" />
+                <AgentDetailedSection @click="selectAgent(null)" v-if="selectedAgent" :agent="selectedAgent" />
             </div>
 
 
             <div class="agent-cards">
-                <div v-for="(agent, index) in agents" :key="index">
-                <AgentCard @click="selectAgent(agent)" class="agent-card" v-if="agent.isPlayableCharacter"  :agentName="agent.displayName" :agentImg="agent.displayIcon" />
+                <div v-for="(agent, index) in filteredAgents" :key="index">
+                <AgentCard @click="selectAgent(agent), scrollToTop()" class="agent-card" v-if="agent.isPlayableCharacter"  :agentName="agent.displayName" :agentImg="agent.displayIcon" />
                 </div>
             </div>
             
@@ -46,6 +46,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
         data(){
             return {
                 agents : [],
+                search : "",
                 headerImg: require('../assets/agents.jpg'),
                 selectedAgent: null
                 
@@ -56,6 +57,13 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
             this.getAgents();
         },
 
+        computed: {
+            filteredAgents() {
+                // console.log(this.maps);
+                return this.agents.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            }
+        },
+
         methods : {
             getAgents(){
                 getAgentsData().then((result) => this.agents = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
@@ -64,6 +72,11 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 
             selectAgent(agent){
                 this.selectedAgent = agent;
+            },
+
+            scrollToTop() {
+                window.scrollTo({top: 670,
+                    behavior: 'smooth'});
             }
         }
         
