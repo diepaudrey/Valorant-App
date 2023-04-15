@@ -8,8 +8,6 @@
 
 <script>
     /* eslint-disable */
-    import { getWeaponsData } from '@/services/api/weaponsAPI.js'
-
     export default {
         name: 'WeaponCard',
         props : {

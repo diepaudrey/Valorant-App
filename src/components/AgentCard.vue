@@ -28,21 +28,62 @@ export default {
     align-items : center;
     justify-content: center;
     border : 1px solid #BDBAB4;
-
+    color: #111;
 }
+.container:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    color: var(--red);
+    font-weight: bold;
+}
+
 
 .agent-name{
     font-size: 1.5em;
-    color: #111;
+    
 }
 
+
 .agent-div{
+    position : relative;
     width: 150px;
     height: 150px;
     margin-top : 20px;
 
     background-size: cover;
 
+}
+
+
+
+.agent-div:hover::before{
+
+    position: absolute;
+    top: 0;
+    left: -10%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 30%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+
+    -webkit-animation: shine .75s;
+    animation: shine .75s;
+}
+
+@-webkit-keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
 }
 
 
@@ -62,13 +103,20 @@ export default {
 
     /*set grey border*/
     border : 1px solid #BDBAB4;
+    color: #111;
     
     
+}
+.container:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    color: var(--red);
+    font-weight: bold;
 }
 
 .agent-name{
     font-size: 1.5em;
-    color: #111;
+
     margin :0;
 }
 
@@ -77,6 +125,36 @@ export default {
     height: 150px;
     background-size: cover;
 
+}
+
+.agent-div:hover::before{
+
+position: absolute;
+top: 0;
+left: -10%;
+z-index: 2;
+display: block;
+content: '';
+width: 30%;
+height: 100%;
+background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+-webkit-transform: skewX(-25deg);
+transform: skewX(-25deg);
+
+-webkit-animation: shine .75s;
+animation: shine .75s;
+}
+
+@-webkit-keyframes shine {
+100% {
+    left: 125%;
+}
+}
+@keyframes shine {
+100% {
+    left: 125%;
+}
 }
 
 }
@@ -96,13 +174,19 @@ export default {
 
     /*set grey border*/
     border : 1px solid #BDBAB4;
+    color: #111;
     
     
+}
+.container:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    color: var(--red);
+    font-weight: bold;
 }
 
 .agent-name{
     font-size: 1em;
-    color: #111;
     margin-top :5px;
     margin-bottom: 0;
 }
@@ -112,6 +196,36 @@ export default {
     height: 80%;
     background-size: cover;
 
+}
+}
+
+.agent-div:hover::before{
+
+position: absolute;
+top: 0;
+left: -10%;
+z-index: 2;
+display: block;
+content: '';
+width: 30%;
+height: 100%;
+background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+-webkit-transform: skewX(-25deg);
+transform: skewX(-25deg);
+
+-webkit-animation: shine .75s;
+animation: shine .75s;
+}
+
+@-webkit-keyframes shine {
+100% {
+    left: 125%;
+}
+}
+@keyframes shine {
+100% {
+    left: 125%;
 }
 }
 

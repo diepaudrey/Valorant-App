@@ -30,8 +30,10 @@
                 </div>
                     
                     <div class="spells-container">
-                        <div class="ability" v-for="(ability, index) in agent.abilities" :key="index">
-                            <AbilityCard v-if="agent.isPlayableCharacter" :abilityName="ability.displayName" :abilityImg="ability.displayIcon" />
+                        <div v-for="(ability, index) in agent.abilities" :key="index">
+                            <div class="ability" v-if="ability.displayIcon != null">
+                                <AbilityCard v-if="agent.isPlayableCharacter" :abilityName="ability.displayName" :abilityImg="ability.displayIcon" />
+                            </div>
                         </div>
                     </div>
             </div>
@@ -179,10 +181,10 @@ export default{
     font-weight: 300;
     color : var(--grey-border);
 }
-/* .closing-arrow{
+.closing-arrow{
     background-image: url("../assets/closing-logo.svg");
     background-size: cover;
-} */
+}
 }
 
 @media screen and (min-width:767px) and (max-width:1023px){

@@ -2,8 +2,6 @@
     <section class="agent-section">
         <div class="img-header" :style="{ backgroundImage: 'url(' + headerImg + ')' }"></div>
 
-        
-        
 
         <div class="infoContainer">
             <div class="header-section">
@@ -11,6 +9,13 @@
 
                 <div class="search-bar">
                         <input type="text" v-model="search" placeholder="Chercher un agent">
+                        <label for="agent-sort">Trier par : </label>
+                        <select v-model="sortBy" id="agent-sort">
+                        <option value="AZName">Noms de A à Z</option>
+                        <option value="ZAName">Noms de Z à A</option>
+                        <option value="AZRole">Role de A à Z</option>
+                        <option value="ZARole">Role de Z à A</option>
+                        </select>
                         
                 </div>
             </div>
@@ -47,6 +52,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
             return {
                 agents : [],
                 search : "",
+                sortBy : "AZName",
                 headerImg: require('../assets/agents.jpg'),
                 selectedAgent: null
                 
@@ -58,9 +64,40 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
         },
 
         computed: {
-            filteredAgents() {
-                // console.log(this.maps);
-                return this.agents.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            // filteredAgents() {
+            //     return this.agents.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            // }
+
+            filteredAgents(){
+                let tempAgent  = this.agents
+
+                //search bar
+                if(this.search != '' && this.search){
+                    tempAgent =  tempAgent.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
+                }
+
+                //sort by
+                if(this.sortBy == 'AZName'){
+                    tempAgent = tempAgent.sort((a,b)=> a.displayName.localeCompare(b.displayName))
+                }
+                else if(this.sortBy =='ZAName'){
+                    //tempAgent = tempAgent.reverse()
+                    tempAgent = tempAgent.sort((a,b)=> b.displayName.localeCompare(a.displayName))
+                }
+
+
+                if(this.sortBy == 'AZRole'){
+                    tempAgent = tempAgent.sort((a, b) => {if (a.role && b.role) {return a.role.displayName.localeCompare(b.role.displayName);} else {
+                    return 0;}});
+                }
+                else if(this.sortBy == 'ZARole'){
+                    // tempAgent = tempAgent.reverse()
+                    tempAgent = tempAgent.sort((a, b) => {if (a.role && b.role) {return b.role.displayName.localeCompare(a.role.displayName);} else {
+                    return 0;}});
+                }
+
+
+                return tempAgent
             }
         },
 
@@ -68,6 +105,10 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
             getAgents(){
                 getAgentsData().then((result) => this.agents = result.data.sort((a,b)=> a.displayName.localeCompare(b.displayName)))
             
+            },
+
+            ZAfilter() {
+                return this.agents.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
             },
 
             selectAgent(agent){

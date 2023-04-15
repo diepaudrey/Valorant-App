@@ -90,7 +90,7 @@ a{
 }
 
 a:hover{
-    color : #FF4655;
+    color : var(--red);
     text-decoration: underline;
 }
 

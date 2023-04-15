@@ -14,7 +14,7 @@
             </div>
             
             <!-- <h3 class="weapon-type"> Type d'arme </h3> -->
-            <div class="weapon-cards" v-for="(weapon, index) in filteredWeapons" :key="index">
+            <div class="weapon-cards" v-for="(weapon, index) in weapons" :key="index">
                 <WeaponCard class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
             </div>
         </div>
@@ -25,6 +25,7 @@
  /* eslint-disable */
 import WeaponCard from './WeaponCard.vue'
 import { getWeaponsData } from '@/services/api/weaponsAPI.js'
+import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
     export default{
         name : 'WeaponSection',
@@ -35,6 +36,7 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
         data(){
             return {
                 weapons : [],
+                skinsWeapons : [],
                 search : "",
                 headerImg : require('../assets/arsenal.png')
             };
@@ -42,13 +44,15 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 
         created(){
             this.getWeapons();
+            this.getSkinsWeapon();
+            //this.randomSkin();
         },
 
         computed: {
-            filteredWeapons() {
-                // console.log(this.maps);
-                return this.weapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
-            }
+            // filteredWeapons() {
+            //     // console.log(this.maps);
+            //     return this.weapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
+            // }
         },
 
         methods : {
@@ -57,7 +61,21 @@ import { getWeaponsData } from '@/services/api/weaponsAPI.js'
                 const comparator = (a,b)=> a.category.localeCompare(b.category);
                 promise.then((result) => this.weapons = result.data.sort(comparator));
             
-            }
+            },
+
+            getSkinsWeapon(){
+                const promise = getSkinsWeaponsData();
+                const comparator = (a,b)=> a.displayName.localeCompare(b.displayName);
+                promise.then((result) => this.skinsWeapons = result.data.sort(comparator));
+                console.log(this.skinsWeapons);
+            },
+
+            // randomSkin(){
+            //     for(let skin of this.skinsWeapons){
+            //         console.log(skin.displayIcon);
+            //     }
+   
+            // }
         }
         
     }

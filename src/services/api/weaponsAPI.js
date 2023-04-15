@@ -1,5 +1,20 @@
 const getWeaponsData = async function () {
-    const response = await fetch("https://valorant-api.com/v1/weapons")
+    const response = await fetch("https://valorant-api.com/v1/weapons?language=fr-FR")
+
+    
+    if(response.status === 200){
+        return response.json()
+    }
+    else{
+        new Error(response.statusText)
+    }
+
+
+}
+export { getWeaponsData }
+
+const getSkinsWeaponsData = async function () {
+    const response = await fetch("https://valorant-api.com/v1/weapons/skins?language=fr-FR")
 
     
     if(response.status === 200){
@@ -12,11 +27,11 @@ const getWeaponsData = async function () {
 
 }
 
-export { getWeaponsData }
+export { getSkinsWeaponsData }
 
 
 const getAgentsData = async function () {
-    const response = await fetch("https://valorant-api.com/v1/agents")
+    const response = await fetch("https://valorant-api.com/v1/agents?language=fr-FR")
 
     
     if(response.status === 200){
@@ -32,7 +47,7 @@ const getAgentsData = async function () {
 export { getAgentsData }
 
 const getMapsData = async function () {
-    const response = await fetch("https://valorant-api.com/v1/maps")
+    const response = await fetch("https://valorant-api.com/v1/maps?language=fr-FR")
 
     if(response.status === 200){
         

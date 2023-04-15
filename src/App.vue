@@ -3,6 +3,8 @@
 <template>
     
   <router-view></router-view>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 </template>
 
@@ -33,6 +35,7 @@ export default {
 :root{
   --grey-border :#BDBAB4;
   --dark-blue : #0F1923;
+  --red : #FF4655;
 }
 
 @font-face {
@@ -59,6 +62,17 @@ body{
   background-color: #ECE8E1;
 
 }
+input:focus{
+  color : var(--red);
+  border-bottom: 1px solid var(--red);
+}
+input::-webkit-input-placeholder {
+    color: var(--grey-border);
+}
+input:focus::-webkit-input-placeholder {
+    color: var(--red);
+}
+
 
 
 
@@ -91,7 +105,21 @@ input{
   color: #878582;
   padding: 7px 0;
   background: transparent;
+  background : linear-gradient()
 }
+
+/* input:focus{
+  color : var(--red);
+  border-bottom: 1px solid var(--red);
+}
+input::-webkit-input-placeholder {
+    color: var(--grey-border);
+}
+input:focus::-webkit-input-placeholder {
+    color: var(--red);
+} */
+
+
 
 /*Style the title and search bar of every pages*/
 .header-section {
@@ -136,6 +164,8 @@ input{
   padding: 7px 0;
   background: transparent;
 }
+
+
 
 /*Style the title and search bar of every pages*/
 .header-section {
