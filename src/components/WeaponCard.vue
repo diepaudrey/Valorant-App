@@ -34,7 +34,16 @@
     width: 80%;
     height: 250px;
     border : 1px solid #BDBAB4;
+    color: black;
 
+}
+
+.weapon-card:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    color: var(--red);
+    font-weight: bold;
+    border : 2px solid var(--red);
 }
 
 .weapon-img {
@@ -44,7 +53,6 @@
 
 .weapon-name{
     font-size: 1.5em;
-    color: #111;
     margin : 0;
 }   
 

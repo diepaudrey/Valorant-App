@@ -35,6 +35,7 @@ export default {
     transition: color 0.5s;
     color: var(--red);
     font-weight: bold;
+    border : 2px solid var(--red);
 }
 
 
@@ -111,6 +112,7 @@ export default {
     -webkit-transition: color 0.5s;
     transition: color 0.5s;
     color: var(--red);
+    border : 1px solid var(--red);
     font-weight: bold;
 }
 
@@ -126,38 +128,8 @@ export default {
     background-size: cover;
 
 }
-
-.agent-div:hover::before{
-
-position: absolute;
-top: 0;
-left: -10%;
-z-index: 2;
-display: block;
-content: '';
-width: 30%;
-height: 100%;
-background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
-background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
--webkit-transform: skewX(-25deg);
-transform: skewX(-25deg);
-
--webkit-animation: shine .75s;
-animation: shine .75s;
 }
 
-@-webkit-keyframes shine {
-100% {
-    left: 125%;
-}
-}
-@keyframes shine {
-100% {
-    left: 125%;
-}
-}
-
-}
 @media screen and (max-width:767px){
 
     .container {
@@ -183,6 +155,7 @@ animation: shine .75s;
     transition: color 0.5s;
     color: var(--red);
     font-weight: bold;
+    border : 1px solid var(--red);
 }
 
 .agent-name{
@@ -199,34 +172,6 @@ animation: shine .75s;
 }
 }
 
-.agent-div:hover::before{
 
-position: absolute;
-top: 0;
-left: -10%;
-z-index: 2;
-display: block;
-content: '';
-width: 30%;
-height: 100%;
-background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
-background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
--webkit-transform: skewX(-25deg);
-transform: skewX(-25deg);
-
--webkit-animation: shine .75s;
-animation: shine .75s;
-}
-
-@-webkit-keyframes shine {
-100% {
-    left: 125%;
-}
-}
-@keyframes shine {
-100% {
-    left: 125%;
-}
-}
 
 </style>

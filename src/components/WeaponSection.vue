@@ -15,8 +15,10 @@
             
             <!-- <h3 class="weapon-type"> Type d'arme </h3> -->
             <div class="weapon-cards" v-for="(weapon, index) in weapons" :key="index">
-                <WeaponCard class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
+                <WeaponCard @click="selectWeapon(index)" class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
             </div>
+
+
         </div>
     </section>
 </template>
@@ -26,6 +28,7 @@
 import WeaponCard from './WeaponCard.vue'
 import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
+
 
     export default{
         name : 'WeaponSection',
@@ -38,21 +41,23 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 weapons : [],
                 skinsWeapons : [],
                 search : "",
-                headerImg : require('../assets/arsenal.png')
+                headerImg : require('../assets/arsenal.png'),
+                selectedWeapon : null,
+                indexSkin : 0,
+                
             };
         },
 
         created(){
             this.getWeapons();
             this.getSkinsWeapon();
-            //this.randomSkin();
+            // this.randomSkin();
+
+           
+            
         },
 
-        computed: {
-            // filteredWeapons() {
-            //     // console.log(this.maps);
-            //     return this.weapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
-            // }
+        computed: { 
         },
 
         methods : {
@@ -65,20 +70,35 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
             getSkinsWeapon(){
                 const promise = getSkinsWeaponsData();
-                const comparator = (a,b)=> a.displayName.localeCompare(b.displayName);
-                promise.then((result) => this.skinsWeapons = result.data.sort(comparator));
-                console.log(this.skinsWeapons);
+                promise.then((result) =>  this.skinsWeapons = result.data);
             },
 
-            // randomSkin(){
-            //     for(let skin of this.skinsWeapons){
-            //         console.log(skin.displayIcon);
-            //     }
+            selectWeapon(index) {
+                this.selectedWeapon = this.weapons[index].displayName.split(' ')[0];
+                this.weapons[index].displayIcon = this.randomSkin().displayIcon;
+                this.weapons[index].displayName = this.randomSkin().displayName;
+            },
+
+            randomSkin(){
+                this.indexSkin++
+                const weaponName = this.selectedWeapon.toString()
+                console.log("weap name : ", weaponName)
+                const skinsWeapon = this.skinsWeapons.filter(skin => skin.displayName.startsWith(weaponName) && skin.displayIcon != null && skin.displayName!=null)
+                const randSkin = skinsWeapon[this.indexSkin]
+                return {
+                    displayName: randSkin.displayName,
+                    displayIcon: randSkin.displayIcon
+                };
    
-            // }
-        }
+            },
+
+
+        
         
     }
+    }
+
+    
 </script>
 
 <style scoped>

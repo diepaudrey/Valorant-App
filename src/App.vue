@@ -105,8 +105,23 @@ input{
   color: #878582;
   padding: 7px 0;
   background: transparent;
-  background : linear-gradient()
 }
+
+label{
+  font-size: 1rem;
+  color: #878582;
+}
+
+select{
+  color: #878582;
+  background: transparent;
+  border: 0;
+  padding: 5px 0;
+  outline-color: var(--grey-border);
+  
+
+}
+
 
 /* input:focus{
   color : var(--red);

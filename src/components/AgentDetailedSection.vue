@@ -79,6 +79,12 @@ export default{
 
 
 }
+
+.agent-section:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    border : 1px solid var(--red);
+}
 .agent-img{
     height: 50vw;
     width : 30vw;

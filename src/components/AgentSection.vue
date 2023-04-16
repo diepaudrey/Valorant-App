@@ -7,17 +7,22 @@
             <div class="header-section">
                 <h1 class="title"> Agents </h1>
 
-                <div class="search-bar">
-                        <input type="text" v-model="search" placeholder="Chercher un agent">
+                <div class="search-sort-container">
+                    <div class="search-bar">
+                            <input type="text" v-model="search" placeholder="Chercher un agent">
+                    </div>
+
+                    <div class="sort-bar">
                         <label for="agent-sort">Trier par : </label>
                         <select v-model="sortBy" id="agent-sort">
-                        <option value="AZName">Noms de A à Z</option>
-                        <option value="ZAName">Noms de Z à A</option>
-                        <option value="AZRole">Role de A à Z</option>
-                        <option value="ZARole">Role de Z à A</option>
+                            <option value="AZName">Noms de A à Z</option>
+                            <option value="ZAName">Noms de Z à A</option>
+                            <option value="AZRole">Role de A à Z</option>
+                            <option value="ZARole">Role de Z à A</option>
                         </select>
-                        
+                    </div>
                 </div>
+                
             </div>
 
             <div class="selectedAgent">
@@ -149,6 +154,15 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
     justify-content: center;
     margin-bottom : 5%
 }
+
+
+.search-sort-container{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 }
 @media screen and (min-width: 767px) and (max-width:1023px){
 .agent-section{
