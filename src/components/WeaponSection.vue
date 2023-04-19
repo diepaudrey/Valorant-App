@@ -13,6 +13,8 @@
                         <select v-model="sortBy" id="agent-sort">
                             <option value="AZName">Noms de A à Z</option>
                             <option value="ZAName">Noms de Z à A</option>
+                            <option value="AZCategory">Catégories de A à Z</option>
+                            <option value="ZACategory">Catégories de Z à A</option>
                         </select>
 
                         <!-- <select v-model="category" id="agent-sort">
@@ -113,8 +115,13 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                     tempWeapons = tempWeapons.sort((a,b)=> a.displayName.localeCompare(b.displayName))
                 }
                 else if(this.sortBy =='ZAName'){
-                    //tempWeapons = tempWeapons.reverse()
                     tempWeapons = tempWeapons.sort((a,b)=> b.displayName.localeCompare(a.displayName))
+                }
+                else if(this.sortBy == 'AZCategory'){
+                    tempWeapons = tempWeapons.sort((a,b)=> a.category.localeCompare(b.category))
+                }
+                else if(this.sortBy =='ZACategory'){
+                    tempWeapons = tempWeapons.sort((a,b)=> b.category.localeCompare(a.category))
                 }
 
 
