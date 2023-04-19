@@ -9,12 +9,55 @@
 
                 <div class="search-bar">
                         <input type="text" v-model="search" placeholder="Chercher une arme">
-                        
+                        <label for="agent-sort">Trier par : </label>
+                        <select v-model="sortBy" id="agent-sort">
+                            <option value="AZName">Noms de A à Z</option>
+                            <option value="ZAName">Noms de Z à A</option>
+                        </select>
+
+                        <!-- <select v-model="category" id="agent-sort">
+                            <option value="Armes de poing">Armes de poing</option>
+                            <option value="ZAName">Noms de Z à A</option>
+                            <option value="AZCategory">Catégories de A à Z</option>
+                            <option value="ZACategory">Catégories de Z à A</option>
+                        </select> -->
+                        <!-- <button type="button" id="refresh-button" @click="refresh = true">Skins de base</button> -->  
+                </div>
+
+                <div class="weapons-checkboxes">
+                    <input type="checkbox" id="heavy-weapons" value="Heavy Weapons" name="heavy-weapons" v-model="categories">
+                    <label for="heavy-weapons"> Armes lourdes</label>
+
+                    <input type="checkbox" id="sidearms" value="Pistols" name="sidearms" v-model="categories">
+                    <label for="sidearms"> Armes de poing </label>
+
+                    <input type="checkbox" id="smgs" value="SMGs" name="smgs" v-model="categories">
+                    <label for="smgs"> Pistolets mitrailleurs </label>
+
+                    <input type="checkbox" id="shotguns" value="Shotguns" name="shotguns" v-model="categories">
+                    <label for="shotguns"> Fusils à pompe </label>
+
+                    <input type="checkbox" id="rifles" value="Rifles" name="rifles" v-model="categories">
+                    <label for="rifles"> Fusils mitrailleurs </label>
+
+                    <input type="checkbox" id="sniper-rifles" value="Sniper Rifles" name="sniper-rifles" v-model="categories">
+                    <label for="sniper-rifles"> Snipers </label>
+
+                    <!-- <input type="checkbox" id="machine-guns" value="Machine Guns" name="machine-guns" v-model="categories">
+                    <label for="machine-guns"> Mitrailleuses lourdes </label> -->
+
+                    <input type="checkbox" id="melee" value="EEquippableCategory::Melee" name="melee" v-model="categories">
+                    <label for="melee"> Mêlée </label>
+
+
+                    <span> {{ categories }}</span>
+
                 </div>
             </div>
             
             <!-- <h3 class="weapon-type"> Type d'arme </h3> -->
-            <div class="weapon-cards" v-for="(weapon, index) in weapons" :key="index">
+            
+            <div class="weapon-cards" v-for="(weapon, index) in filteredWeapons" :key="index">
                 <WeaponCard @click="selectWeapon(index)" class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
             </div>
 
@@ -41,9 +84,11 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 weapons : [],
                 skinsWeapons : [],
                 search : "",
+                sortBy : "AZName",
+                categories : [],
                 headerImg : require('../assets/arsenal.png'),
                 selectedWeapon : null,
-                indexSkin : 0,
+                refresh : false,
                 
             };
         },
@@ -51,13 +96,42 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         created(){
             this.getWeapons();
             this.getSkinsWeapon();
-            // this.randomSkin();
-
-           
-            
         },
 
         computed: { 
+            filteredWeapons(){
+                let tempWeapons  = this.weapons
+
+                //search bar
+                if(this.search != '' && this.search){
+                    tempWeapons =  tempWeapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
+                }
+
+
+                //sort by
+                if(this.sortBy == 'AZName'){
+                    tempWeapons = tempWeapons.sort((a,b)=> a.displayName.localeCompare(b.displayName))
+                }
+                else if(this.sortBy =='ZAName'){
+                    //tempWeapons = tempWeapons.reverse()
+                    tempWeapons = tempWeapons.sort((a,b)=> b.displayName.localeCompare(a.displayName))
+                }
+
+
+                if (this.categories.length > 0) {
+                    //special case for the melee weapon that dont have .shopData 
+                    if(this.categories.includes("EEquippableCategory::Melee")){
+                        tempWeapons = tempWeapons.filter(weapon => {if(weapon.shopData!=null) { return this.categories.includes(weapon.shopData.category)} else{
+                            return weapon.category == "EEquippableCategory::Melee"
+                        }});
+                    }
+                    else{
+                        tempWeapons = tempWeapons.filter(weapon => {if(weapon.shopData!=null) { return this.categories.includes(weapon.shopData.category)}});
+                    }
+                }
+                
+                return tempWeapons
+            }
         },
 
         methods : {
@@ -73,24 +147,38 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 promise.then((result) =>  this.skinsWeapons = result.data);
             },
 
+            //Display a new skin
             selectWeapon(index) {
-                this.selectedWeapon = this.weapons[index].displayName.split(' ')[0];
-                this.weapons[index].displayIcon = this.randomSkin().displayIcon;
-                this.weapons[index].displayName = this.randomSkin().displayName;
+                //only take the name of the weapon, without extra info
+                this.selectedWeapon = this.filteredWeapons[index].displayName.split(' ')[0];
+
+                //the new skin weapon to display
+                const randSkinObj = this.randomSkin();
+
+                //change the current name and image of the weapon showed
+                this.filteredWeapons[index].displayIcon = randSkinObj.displayIcon;
+                this.filteredWeapons[index].displayName = randSkinObj.displayName;
             },
 
             randomSkin(){
-                this.indexSkin++
+                //transform the selected weapon to string
                 const weaponName = this.selectedWeapon.toString()
-                console.log("weap name : ", weaponName)
+
+                //filter the array of all skins of all weapons to only keep the skins of the weapon selected
                 const skinsWeapon = this.skinsWeapons.filter(skin => skin.displayName.startsWith(weaponName) && skin.displayIcon != null && skin.displayName!=null)
-                const randSkin = skinsWeapon[this.indexSkin]
+
+                //random int according to the length of the array
+                const randInt = Math.floor(Math.random() * skinsWeapon.length)
+
+
+                const randSkin = skinsWeapon[randInt]
                 return {
                     displayName: randSkin.displayName,
                     displayIcon: randSkin.displayIcon
                 };
    
             },
+
 
 
         

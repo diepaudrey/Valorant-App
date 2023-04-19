@@ -56,7 +56,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
         data(){
             return {
                 agents : [],
-                search : "",
+                search : localStorage.getItem("search") || "",
                 sortBy : "AZName",
                 headerImg: require('../assets/agents.jpg'),
                 selectedAgent: null
@@ -66,6 +66,13 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 
         created(){
             this.getAgents();
+        },
+
+        watch:{
+            search: function(newSearch){
+                localStorage.setItem("search", newSearch)
+            },
+
         },
 
         computed: {
