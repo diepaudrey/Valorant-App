@@ -1,10 +1,11 @@
 
 
 <template>
-    
-  <router-view></router-view>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <div>
+    <router-view></router-view>
+  </div>
+  
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
 </template>
 
@@ -73,6 +74,13 @@ input:focus::-webkit-input-placeholder {
     color: var(--red);
 }
 
+.search-sort-container{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 
 
@@ -110,6 +118,7 @@ input{
 label{
   font-size: 1rem;
   color: #878582;
+  padding : 10px;
 }
 
 select{

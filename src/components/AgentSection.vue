@@ -12,7 +12,6 @@
                             <input type="text" v-model="search" placeholder="Chercher un agent">
                     </div>
 
-                    <div class="sort-bar">
                         <label for="agent-sort">Trier par : </label>
                         <select v-model="sortBy" id="agent-sort">
                             <option value="AZName">Noms de A à Z</option>
@@ -20,7 +19,7 @@
                             <option value="AZRole">Role de A à Z</option>
                             <option value="ZARole">Role de Z à A</option>
                         </select>
-                    </div>
+            
                 </div>
                 
             </div>
@@ -53,11 +52,21 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
             AgentCard, AgentDetailedSection
 
         },
+
+        watch:{
+            search: function(newSearch){
+                localStorage.setItem("search", newSearch)
+            },
+            sortBy: function(newSort){
+                localStorage.setItem("sortBy", newSort)
+            }
+
+        },
         data(){
             return {
                 agents : [],
                 search : localStorage.getItem("search") || "",
-                sortBy : "AZName",
+                sortBy : localStorage.getItem("sortBy") || "AZName",
                 headerImg: require('../assets/agents.jpg'),
                 selectedAgent: null
                 
@@ -68,17 +77,8 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
             this.getAgents();
         },
 
-        watch:{
-            search: function(newSearch){
-                localStorage.setItem("search", newSearch)
-            },
-
-        },
-
         computed: {
-            // filteredAgents() {
-            //     return this.agents.filter(agent => {return agent.displayName.toLowerCase().includes(this.search.toLowerCase())})
-            // }
+
 
             filteredAgents(){
                 let tempAgent  = this.agents
@@ -166,9 +166,10 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 .search-sort-container{
     display : flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
+
 
 }
 @media screen and (min-width: 767px) and (max-width:1023px){

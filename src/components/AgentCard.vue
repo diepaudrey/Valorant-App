@@ -32,10 +32,10 @@ export default {
 }
 .container:hover{
     -webkit-transition: color 0.5s;
-    transition: color 0.5s;
+    transition: color 0.8s;
     color: var(--red);
     font-weight: bold;
-    border : 2px solid var(--red);
+    border : 1px solid var(--red);
 }
 
 
@@ -58,21 +58,17 @@ export default {
 
 
 .agent-div:hover::before{
-
     position: absolute;
     top: 0;
     left: -10%;
-    z-index: 2;
+    z-index: 1;
     display: block;
     content: '';
     width: 30%;
     height: 100%;
     background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
     background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
-    -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
-
-    -webkit-animation: shine .75s;
     animation: shine .75s;
 }
 
@@ -118,7 +114,6 @@ export default {
 
 .agent-name{
     font-size: 1.5em;
-
     margin :0;
 }
 

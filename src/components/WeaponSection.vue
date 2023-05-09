@@ -7,57 +7,62 @@
             <div class="header-section">
                 <h1 class="title"> Arsenal </h1>
 
-                <div class="search-bar">
-                        <input type="text" v-model="search" placeholder="Chercher une arme">
-                        <label for="agent-sort">Trier par : </label>
-                        <select v-model="sortBy" id="agent-sort">
+                <div class="search-sort-container">
+                        <input type="text" v-model="searchWeapon" placeholder="Chercher une arme">
+                        <label for="weapon-sort">Trier par : </label>
+                        <select v-model="sortBy" id="weapon-sort">
                             <option value="AZName">Noms de A à Z</option>
                             <option value="ZAName">Noms de Z à A</option>
                             <option value="AZCategory">Catégories de A à Z</option>
                             <option value="ZACategory">Catégories de Z à A</option>
-                        </select>
-
-                        <!-- <select v-model="category" id="agent-sort">
-                            <option value="Armes de poing">Armes de poing</option>
-                            <option value="ZAName">Noms de Z à A</option>
-                            <option value="AZCategory">Catégories de A à Z</option>
-                            <option value="ZACategory">Catégories de Z à A</option>
-                        </select> -->
-                        <!-- <button type="button" id="refresh-button" @click="refresh = true">Skins de base</button> -->  
+                        </select>  
                 </div>
 
-                <div class="weapons-checkboxes">
-                    <input type="checkbox" id="heavy-weapons" value="Heavy Weapons" name="heavy-weapons" v-model="categories">
-                    <label for="heavy-weapons"> Armes lourdes</label>
-
-                    <input type="checkbox" id="sidearms" value="Pistols" name="sidearms" v-model="categories">
-                    <label for="sidearms"> Armes de poing </label>
-
-                    <input type="checkbox" id="smgs" value="SMGs" name="smgs" v-model="categories">
-                    <label for="smgs"> Pistolets mitrailleurs </label>
-
-                    <input type="checkbox" id="shotguns" value="Shotguns" name="shotguns" v-model="categories">
-                    <label for="shotguns"> Fusils à pompe </label>
-
-                    <input type="checkbox" id="rifles" value="Rifles" name="rifles" v-model="categories">
-                    <label for="rifles"> Fusils mitrailleurs </label>
-
-                    <input type="checkbox" id="sniper-rifles" value="Sniper Rifles" name="sniper-rifles" v-model="categories">
-                    <label for="sniper-rifles"> Snipers </label>
-
-                    <!-- <input type="checkbox" id="machine-guns" value="Machine Guns" name="machine-guns" v-model="categories">
-                    <label for="machine-guns"> Mitrailleuses lourdes </label> -->
-
-                    <input type="checkbox" id="melee" value="EEquippableCategory::Melee" name="melee" v-model="categories">
-                    <label for="melee"> Mêlée </label>
-
-
-                    <span> {{ categories }}</span>
-
-                </div>
+                <!-- <WeaponsCheckbox :weaponsCategory="this.weapons.category"/> -->
             </div>
-            
-            <!-- <h3 class="weapon-type"> Type d'arme </h3> -->
+
+            <div class="container-checkboxes">
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="heavy-weapons" value="Heavy Weapons" name="heavy-weapons" v-model="categories">
+                        <label for="heavy-weapons"> Armes lourdes</label>
+                    </div>
+                   
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="sidearms" value="Pistols" name="sidearms" v-model="categories">
+                        <label for="sidearms"> Armes de poing </label>
+                    </div>
+                    
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="smgs" value="SMGs" name="smgs" v-model="categories">
+                        <label for="smgs"> Pistolets mitrailleurs </label>
+                    </div>
+
+
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="shotguns" value="Shotguns" name="shotguns" v-model="categories">
+                        <label for="shotguns"> Fusils à pompe </label>
+                    </div>
+                    
+
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="rifles" value="Rifles" name="rifles" v-model="categories">
+                        <label for="rifles"> Fusils mitrailleurs </label>
+                    </div>
+                    
+
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="sniper-rifles" value="Sniper Rifles" name="sniper-rifles" v-model="categories">
+                        <label for="sniper-rifles"> Snipers </label>
+                    </div>
+                    
+
+                    <div class="weapon-checkbox">
+                        <input class="checkbox" type="checkbox" id="melee" value="EEquippableCategory::Melee" name="melee" v-model="categories">
+                        <label for="melee"> Mêlée </label>
+                    </div>
+
+
+                </div>
             
             <div class="weapon-cards" v-for="(weapon, index) in filteredWeapons" :key="index">
                 <WeaponCard @click="selectWeapon(index)" class="weapon-card" :weaponName="weapon.displayName" :weaponImg="weapon.displayIcon" />
@@ -71,6 +76,7 @@
 <script>
  /* eslint-disable */
 import WeaponCard from './WeaponCard.vue'
+import WeaponsCheckbox from './WeaponsCheckbox.vue'
 import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
@@ -79,15 +85,30 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         name : 'WeaponSection',
         components : {
             WeaponCard,
+            WeaponsCheckbox
 
+        },
+        watch: {
+            searchWeapon: function(newSearch){
+                localStorage.setItem("searchWeapon", newSearch)
+            },
+            sortBy: function(newSort){
+                localStorage.setItem("sort", newSort)
+            },
+
+            categories: function(newCategories){
+                let string = JSON.stringify(this.categories)
+                console.log(string)
+                localStorage.setItem("categoriesSelected", string)
+            },
         },
         data(){
             return {
                 weapons : [],
                 skinsWeapons : [],
-                search : "",
-                sortBy : "AZName",
-                categories : [],
+                searchWeapon: localStorage.getItem("searchWeapon") || "",
+                sortBy: localStorage.getItem("sort") || "AZName",
+                categories : JSON.parse(localStorage.getItem("categoriesSelected")) || [],
                 headerImg : require('../assets/arsenal.png'),
                 selectedWeapon : null,
                 refresh : false,
@@ -105,8 +126,8 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 let tempWeapons  = this.weapons
 
                 //search bar
-                if(this.search != '' && this.search){
-                    tempWeapons =  tempWeapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.search.toLowerCase())})
+                if(this.searchWeapon != '' && this.searchWeapon){
+                    tempWeapons =  tempWeapons.filter(weapon => {return weapon.displayName.toLowerCase().includes(this.searchWeapon.toLowerCase())})
                 }
 
 
@@ -118,7 +139,7 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                     tempWeapons = tempWeapons.sort((a,b)=> b.displayName.localeCompare(a.displayName))
                 }
                 else if(this.sortBy == 'AZCategory'){
-                    tempWeapons = tempWeapons.sort((a,b)=> a.category.localeCompare(b.category))
+                tempWeapons = tempWeapons.sort((a,b)=> a.category.localeCompare(b.category))
                 }
                 else if(this.sortBy =='ZACategory'){
                     tempWeapons = tempWeapons.sort((a,b)=> b.category.localeCompare(a.category))
@@ -142,6 +163,17 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         },
 
         methods : {
+
+            /*A FAIRE POUR LES CATEGORIES*/
+            // test() {
+            //     let array = ["toto", "titi"]
+            //     let string = JSON.stringify(array)
+            //     localStorage.setItem("bidule", string)
+
+            //     ---
+            //     let string = localStorage.getItem("bidule")
+            //     let array = JSON.parse(string)
+            // }
             getWeapons(){
                 const promise = getWeaponsData();
                 const comparator = (a,b)=> a.category.localeCompare(b.category);
@@ -157,34 +189,56 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
             //Display a new skin
             selectWeapon(index) {
                 //only take the name of the weapon, without extra info
-                this.selectedWeapon = this.filteredWeapons[index].displayName.split(' ')[0];
+                this.selectedWeapon = this.filteredWeapons[index]
+                //this.selectedWeapon = this.filteredWeapons[index].displayName.split(' ')[0]
 
                 //the new skin weapon to display
-                const randSkinObj = this.randomSkin();
+                const randSkinObj = this.randomSkin(index)
 
                 //change the current name and image of the weapon showed
-                this.filteredWeapons[index].displayIcon = randSkinObj.displayIcon;
-                this.filteredWeapons[index].displayName = randSkinObj.displayName;
+                this.filteredWeapons[index].displayIcon = randSkinObj.displayIcon
+                this.filteredWeapons[index].displayName = randSkinObj.displayName
             },
 
-            randomSkin(){
+            randomSkin(index){
+
                 //transform the selected weapon to string
-                const weaponName = this.selectedWeapon.toString()
+                //const weaponName = this.selectedWeapon.toString()
+                const weaponName = this.selectedWeapon.displayName.split(' ')[0].toString()
+                const isMelee = this.selectedWeapon.assetPath.includes("Melee")
 
-                //filter the array of all skins of all weapons to only keep the skins of the weapon selected
-                const skinsWeapon = this.skinsWeapons.filter(skin => skin.displayName.startsWith(weaponName) && skin.displayIcon != null && skin.displayName!=null)
+                //special case, because Melee skins don't all start with "Melee"
+                if(isMelee){
+                    //filter the array of all skins of all weapons to only keep the skins of the weapon selected
+                    const skinsWeapon = this.skinsWeapons.filter(skin => skin.assetPath.includes("Melee") && skin.displayIcon != null && skin.displayName!=null)
+                    //random int according to the length of the array
+                    const randInt = Math.floor(Math.random() * skinsWeapon.length)
 
-                //random int according to the length of the array
-                const randInt = Math.floor(Math.random() * skinsWeapon.length)
+                    const randSkin = skinsWeapon[randInt]
+                    return {
+                        displayName: randSkin.displayName,
+                        displayIcon: randSkin.displayIcon
+                    };
+                }
+                else{
+                    //filter the array of all skins of all weapons to only keep the skins of the weapon selected
+                    const skinsWeapon = this.skinsWeapons.filter(skin => skin.displayName.startsWith(weaponName) && skin.displayIcon != null && skin.displayName!=null)
+
+                    //random int according to the length of the array
+                    const randInt = Math.floor(Math.random() * skinsWeapon.length)
 
 
-                const randSkin = skinsWeapon[randInt]
-                return {
-                    displayName: randSkin.displayName,
-                    displayIcon: randSkin.displayIcon
-                };
+                    const randSkin = skinsWeapon[randInt]
+                    return {
+                        displayName: randSkin.displayName,
+                        displayIcon: randSkin.displayIcon
+                    };
+                }
+                
    
             },
+
+            
 
 
 
@@ -199,19 +253,10 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 <style scoped>
 
 @media screen and (min-width: 1024px) {
-.top-section{
-    margin-top : 40px;
-    margin-bottom : 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .weapon-section{
     overflow : hidden;
 }
-
 
 
 .weapon-cards{
@@ -222,17 +267,35 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
     margin-bottom : -1px;
 }
 
+/*-----style for checkboxes-------*/
+.container-checkboxes{
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin : 20px;
+}
+.weapon-checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkbox{
+    width : 15px;
+    height : 15px;
+}
+
+.search-sort-container{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 }
 
 @media screen and (min-width: 767px) and (max-width:1023px){
-    .top-section{
-    margin-top : 40px;
-    margin-bottom : 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .weapon-section{
     overflow : hidden;
@@ -255,14 +318,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
 
 @media screen and (max-width: 767px) {
-    .top-section{
-    margin-top : 40px;
-    margin-bottom : 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .weapon-section{
     margin-bottom : 50px;

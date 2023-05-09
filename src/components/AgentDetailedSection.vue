@@ -416,7 +416,7 @@ export default{
 
 .text-role{
     font-family : Impact, 'Arial Narrow';
-    font-size : 5vw;
+    font-size : 1em;
 
     padding-left : 1vw;
     padding-right : 1vw;
@@ -427,7 +427,7 @@ export default{
 .text-bio{
     margin:0;
     font-family: 'Hind', sans-serif;
-    font-size : 4vw;
+    font-size : 1em;
 
 }
 
