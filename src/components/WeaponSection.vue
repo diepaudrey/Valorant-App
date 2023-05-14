@@ -8,7 +8,9 @@
                 <h1 class="title"> Arsenal </h1>
 
                 <div class="search-sort-container">
+                    <div class="search-bar"> 
                         <input type="text" v-model="searchWeapon" placeholder="Chercher une arme">
+                    </div>
                         <label for="weapon-sort">Trier par : </label>
                         <select v-model="sortBy" id="weapon-sort">
                             <option value="AZName">Noms de A à Z</option>
@@ -90,17 +92,13 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         },
         watch: {
             searchWeapon: function(newSearch){
+                console.log("search : ", newSearch)
                 localStorage.setItem("searchWeapon", newSearch)
             },
             sortBy: function(newSort){
                 localStorage.setItem("sort", newSort)
             },
 
-            categories: function(newCategories){
-                let string = JSON.stringify(this.categories)
-                console.log(string)
-                localStorage.setItem("categoriesSelected", string)
-            },
         },
         data(){
             return {
@@ -111,8 +109,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 categories : JSON.parse(localStorage.getItem("categoriesSelected")) || [],
                 headerImg : require('../assets/arsenal.png'),
                 selectedWeapon : null,
-                refresh : false,
-                
             };
         },
 
@@ -163,17 +159,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         },
 
         methods : {
-
-            /*A FAIRE POUR LES CATEGORIES*/
-            // test() {
-            //     let array = ["toto", "titi"]
-            //     let string = JSON.stringify(array)
-            //     localStorage.setItem("bidule", string)
-
-            //     ---
-            //     let string = localStorage.getItem("bidule")
-            //     let array = JSON.parse(string)
-            // }
             getWeapons(){
                 const promise = getWeaponsData();
                 const comparator = (a,b)=> a.category.localeCompare(b.category);
@@ -188,10 +173,8 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
             //Display a new skin
             selectWeapon(index) {
-                //only take the name of the weapon, without extra info
                 this.selectedWeapon = this.filteredWeapons[index]
-                //this.selectedWeapon = this.filteredWeapons[index].displayName.split(' ')[0]
-
+            
                 //the new skin weapon to display
                 const randSkinObj = this.randomSkin(index)
 
@@ -202,9 +185,9 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
             randomSkin(index){
 
-                //transform the selected weapon to string
-                //const weaponName = this.selectedWeapon.toString()
+                //transform the selected weapon name to string
                 const weaponName = this.selectedWeapon.displayName.split(' ')[0].toString()
+                //boolean to tell if the selected weapon is Melee
                 const isMelee = this.selectedWeapon.assetPath.includes("Melee")
 
                 //special case, because Melee skins don't all start with "Melee"

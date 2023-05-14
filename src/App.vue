@@ -102,6 +102,7 @@ input:focus::-webkit-input-placeholder {
     height : 70vh;
     background-size : cover;
     background-position: center;
+
 }
 
 input{
