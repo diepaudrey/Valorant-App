@@ -42,6 +42,14 @@
     margin: 0 auto;
     padding: 10px;
 }
+
+.map-card:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.8s;
+    color: var(--red);
+    font-weight: bold;
+    border : 1px solid var(--red);
+}
 .map-img{
     width : 100%;
     height : 30vh;

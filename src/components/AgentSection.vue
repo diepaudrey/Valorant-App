@@ -12,6 +12,7 @@
                             <input type="text" v-model="search" placeholder="Chercher un agent">
                     </div>
 
+                    <div class="sort-container">
                         <label for="agent-sort">Trier par : </label>
                         <select v-model="sortBy" id="agent-sort">
                             <option value="AZName">Noms de A à Z</option>
@@ -19,6 +20,7 @@
                             <option value="AZRole">Role de A à Z</option>
                             <option value="ZARole">Role de Z à A</option>
                         </select>
+                    </div>
             
                 </div>
                 
@@ -137,13 +139,6 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 </script>
 
 <style scoped>
-@media screen and (min-width:1024px){
-    .agent-section{
-    overflow : hidden;
-    
-}
-
-
 .agent-cards{
     display : flex;
     flex-direction : row;
@@ -152,15 +147,20 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
     
 }
 
-.infoContainer{
-    padding-bottom : 100px;
-}
-
 .selectedAgent{
     display : flex;
     justify-content: center;
     margin-bottom : 5%
 }
+
+
+@media screen and (min-width:1024px){
+
+
+.infoContainer{
+    padding-bottom : 100px;
+}
+
 
 
 .search-sort-container{
@@ -174,51 +174,40 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 
 }
 @media screen and (min-width: 767px) and (max-width:1023px){
-.agent-section{
-    overflow : hidden;
-}
 
-
-.agent-cards{
-    display : flex;
-    flex-direction : row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 .infoContainer{
     padding-bottom : 25px;
 }
 
-.selectedAgent{
+.search-sort-container{
     display : flex;
-    justify-content: center;
-    margin-bottom : 5%
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 }
 @media screen and (max-width:767px){
-    .agent-section{
-    overflow : hidden;
-}
-
-
-.agent-cards{
-    display : flex;
-    flex-direction : row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 .infoContainer{
-    padding-bottom : 25px;
+    padding-bottom : 10px;
 }
 
-.selectedAgent{
+.search-sort-container{
     display : flex;
-    justify-content: center;
-    margin-bottom : 5%
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.header-section{
+    display : flex;
+    flex-direction: column
+}
+
+
 }
 
 

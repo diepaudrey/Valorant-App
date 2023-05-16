@@ -78,7 +78,6 @@
 <script>
  /* eslint-disable */
 import WeaponCard from './WeaponCard.vue'
-import WeaponsCheckbox from './WeaponsCheckbox.vue'
 import { getWeaponsData } from '@/services/api/weaponsAPI.js'
 import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
@@ -87,7 +86,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
         name : 'WeaponSection',
         components : {
             WeaponCard,
-            WeaponsCheckbox
 
         },
         watch: {
@@ -100,7 +98,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
             },
             categories: function(newCategories){
                 let string = JSON.stringify(this.categories)
-                console.log(string)
                 localStorage.setItem("categoriesSelected", string)
             },
 
@@ -285,16 +282,27 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
 @media screen and (min-width: 767px) and (max-width:1023px){
 
-.weapon-section{
-    overflow : hidden;
+.container-checkboxes{
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin : 20px;
 }
-
+.weapon-checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkbox{
+    width : 15px;
+    height : 15px;
+}
 
 
 .weapon-cards{
     display : flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     justify-content : center;
     margin-bottom : -1px;
 }
@@ -307,6 +315,29 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 
 @media screen and (max-width: 767px) {
 
+.header-section{
+    height: 100px;
+    margin-left : 20px;
+    display : flex;
+    flex-direction: column;
+    align-items: start;
+}
+    .container-checkboxes{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin : 20px;
+}
+.weapon-checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkbox{
+    width : 15px;
+    height : 15px;
+}
 .weapon-section{
     margin-bottom : 50px;
 }

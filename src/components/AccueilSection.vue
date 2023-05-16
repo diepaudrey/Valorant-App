@@ -51,6 +51,9 @@ import NavCard from './NavCard.vue'
 
 
 <style scoped>
+.main-section{
+    overflow: hidden;
+}
 @media screen and (min-width:1024px){
     .text-presentation{
     font-size: 1.2vw;

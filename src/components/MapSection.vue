@@ -7,6 +7,9 @@
             <div class="header-section">
                 <h1 class="title"> Cartes </h1>
 
+
+                <ModalCard v-if="selectedMap" :map="selectedMap" v-on:close="selectedMap = null" ></ModalCard>
+
                 <div class="search-sort-container">
                     <div class="search-bar">
                             <input type="text" v-model="searchMap" placeholder="Chercher une carte">
@@ -24,7 +27,7 @@
             
 
             <div class="map-cards" v-for="map in filteredMaps" :key="map.displayName">
-                <MapCard
+                <MapCard @click="selectMap(map)"
                 :mapName="map.displayName" 
                 :mapImg="map.splash"/>
                 
@@ -38,14 +41,17 @@
 
 <script>
 import MapCard from './MapCard.vue'
+import ModalCard from './ModalMap.vue'
 
 import { getMapsData } from '@/services/api/weaponsAPI';
 
     export default {
         name : 'MapSection',
         components : {
-            MapCard,
+            MapCard, 
+            ModalCard, 
         },
+       
 
         watch: {
             searchMaps: function(newSearch){
@@ -61,7 +67,8 @@ import { getMapsData } from '@/services/api/weaponsAPI';
                 maps : [],
                 searchMap: localStorage.getItem("searchMap") || "",
                 sortBy: localStorage.getItem("sort") || "AZName",
-                headerImg: require('../assets/map_lotus.png')
+                headerImg: require('../assets/map_lotus.png'),
+                selectedMap:  null
             };
         },
 
@@ -100,6 +107,18 @@ import { getMapsData } from '@/services/api/weaponsAPI';
                 //by default sort in AZname 
                 const comparator = (a,b)=> a.displayName.localeCompare(b.displayName);
                 promise.then((result) => this.maps = result.data.sort(comparator));
+            },
+
+            selectMap(map){
+                
+                if(map.displayName == "Entraînement"){
+                    
+                    this.selectedMap = null
+                }
+                else{
+                    this.selectedMap = map
+                }
+                
             },
 
         }
