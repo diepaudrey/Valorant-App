@@ -98,6 +98,11 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
             sortBy: function(newSort){
                 localStorage.setItem("sort", newSort)
             },
+            categories: function(newCategories){
+                let string = JSON.stringify(this.categories)
+                console.log(string)
+                localStorage.setItem("categoriesSelected", string)
+            },
 
         },
         data(){

@@ -80,7 +80,6 @@ import { getMapsData } from '@/services/api/weaponsAPI';
                     tempMaps =  tempMaps.filter(map => {return map.displayName.toLowerCase().includes(this.searchMap.toLowerCase())})
                 }
 
-
                 //sort by
                 if(this.sortBy == 'AZName'){
                     tempMaps = tempMaps.sort((a,b)=> a.displayName.localeCompare(b.displayName))
