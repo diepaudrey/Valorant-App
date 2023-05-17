@@ -180,7 +180,9 @@ input{
 }
 
 label{
-  font-size: 1.2em;
+  font-size: 1rem;
+  color: #878582;
+  padding : 10px;
 }
 
 
@@ -227,7 +229,10 @@ input{
 }
 
 label{
-  font-size: 0.8em;
+  font-size: 0.8rem;
+  color: #878582;
+  padding : 5px;
+  
 }
 
 .header-section {

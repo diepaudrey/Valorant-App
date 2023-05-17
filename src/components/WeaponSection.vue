@@ -239,11 +239,6 @@ import { getSkinsWeaponsData } from '@/services/api/InfoAPI.js'
 
 @media screen and (min-width: 1024px) {
 
-.weapon-section{
-    overflow : hidden;
-}
-
-
 .weapon-cards{
     display : flex;
     flex-direction: row;
