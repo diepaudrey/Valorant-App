@@ -5,7 +5,6 @@
     <router-view></router-view>
   </div>
   
-  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
 </template>
 
@@ -134,17 +133,6 @@ select{
 }
 
 
-/* input:focus{
-  color : var(--red);
-  border-bottom: 1px solid var(--red);
-}
-input::-webkit-input-placeholder {
-    color: var(--grey-border);
-}
-input:focus::-webkit-input-placeholder {
-    color: var(--red);
-} */
-
 
 
 /*Style the title and search bar of every pages*/
@@ -185,15 +173,17 @@ input{
   border: 0;
   border-bottom: 1px solid #878582;
   outline: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #878582;
   padding: 7px 0;
   background: transparent;
 }
 
+label{
+  font-size: 1.2em;
+}
 
 
-/*Style the title and search bar of every pages*/
 .header-section {
     display : flex;
     flex-direction : row;
@@ -230,13 +220,16 @@ input{
   border: 0;
   border-bottom: 1px solid #878582;
   outline: 0;
-  font-size: 2.7vw;
+  font-size: 3vw;
   color: #878582;
   padding: 1v 0;
   background: transparent;
 }
 
-/*Style the title and search bar of every pages*/
+label{
+  font-size: 0.8em;
+}
+
 .header-section {
     display : flex;
     flex-direction : row;

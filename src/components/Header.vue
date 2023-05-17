@@ -59,21 +59,21 @@
 
 
 .ul-container {
-    /*full navbar width*/
+   
     width : 100%;
 
-    /*set flexbox*/
+    
     display :flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
-    /*set margins & padding*/
+   
     margin-right : auto;
     margin-left : 0;
     padding : 0;
 
-    /*change z-index */
+   
     position: absolute;
     z-index: 0;
 }
@@ -194,7 +194,6 @@ a:hover{
     width:100%;
     height:100%;
     margin :0;
-    /* margin-right: 100px; */
     padding : 0;
 }
 

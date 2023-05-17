@@ -43,7 +43,7 @@
 import MapCard from './MapCard.vue'
 import ModalCard from './ModalMap.vue'
 
-import { getMapsData } from '@/services/api/weaponsAPI';
+import { getMapsData } from '@/services/api/InfoAPI';
 
     export default {
         name : 'MapSection',
@@ -126,4 +126,24 @@ import { getMapsData } from '@/services/api/weaponsAPI';
 
     }
 </script>
+
+<style scoped>
+@media screen and (max-width:767px){
+
+.search-sort-container{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-section{
+    height: 50px;
+    margin-left : 20px;
+    display : flex;
+    flex-direction: column;
+    align-items: start;
+}
+}
+</style>
 

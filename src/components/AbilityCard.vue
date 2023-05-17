@@ -38,8 +38,6 @@ export default {
 .ability-div{
     width: 3vw;
     height: 3vw;
-    /* margin-top : 20px; */
-
     background-size: cover;
 
 }
@@ -48,12 +46,10 @@ export default {
 }
 @media screen and (min-width: 767px) and (max-width:1023px){
 .container {
-    /*set flexbox*/ 
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: space-around;
-
     padding : 10px;
     
     
@@ -76,8 +72,7 @@ export default {
 }
 @media screen and (max-width:767px){
 
-    .container {
-    /*set flexbox*/ 
+.container {
     display : flex;
     flex-direction : column;
     align-items : center;

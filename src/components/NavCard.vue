@@ -4,8 +4,6 @@
         <h2 class="cardName">  {{cardName}} </h2>
     </div>
 
-    <!-- <router-link :to="routerLink"></router-link> -->
-
 </template>
 
 <script>

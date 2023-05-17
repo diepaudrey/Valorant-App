@@ -32,15 +32,16 @@
     justify-content: space-evenly;
 
     margin: 0 auto;
+    
 
 }
 .map-card{
     border : 1px solid #BDBAB4;
-
-    width: 70vw; /* Can be in percentage also. */
+    width: 70vw; 
     height: auto;
     margin: 0 auto;
     padding: 10px;
+    color : #111;
 }
 
 .map-card:hover{
@@ -60,7 +61,7 @@
 .map-name{
     font-family: Valorant;
     font-size: 2em;
-    color : #111;
+    
     margin:0;
 }
 }
@@ -77,12 +78,13 @@
     justify-content: space-evenly;
 
     margin: 0 auto;
+    color : #111;
 
 }
 .map-card{
     border : 1px solid #BDBAB4;
 
-    width: 80vw; /* Can be in percentage also. */
+    width: 80vw; 
     height: auto;
     margin: 0 auto;
     padding: 10px;
@@ -94,10 +96,17 @@
     background-position: top 40% center;
 }
 
+.map-card:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.8s;
+    color: var(--red);
+    font-weight: bold;
+    border : 1px solid var(--red);
+}
+
 .map-name{
     font-family: Valorant;
     font-size: 1.5em;
-    color : #111;
     margin:0;
 }
 }
@@ -114,12 +123,13 @@
     justify-content: space-evenly;
 
     margin: 0 auto;
+    color : #111;
 
 }
 .map-card{
     border : 1px solid #BDBAB4;
 
-    width: 90vw; /* Can be in percentage also. */
+    width: 90vw; 
     height: auto;
     margin: 0 auto;
     padding: 10px;
@@ -134,8 +144,14 @@
 .map-name{
     font-family: Valorant;
     font-size: 5vw;
-    color : #111;
     margin:0;
+}
+.map-card:hover{
+    -webkit-transition: color 0.5s;
+    transition: color 0.8s;
+    color: var(--red);
+    font-weight: bold;
+    border : 1px solid var(--red);
 }
 }
 

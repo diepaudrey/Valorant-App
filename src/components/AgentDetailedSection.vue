@@ -63,13 +63,13 @@ export default{
 <style scoped>
 @media screen and (min-width:1024px) {
     .agent-section{
-    /*flexbox*/
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    /*set section size and border*/
+   
     border : 1px solid var(--grey-border);
     width: 85vw;
     height: 60%;
@@ -99,12 +99,12 @@ export default{
 }
 
 .info-container{
-    /*set flexbox*/
+    
     display: flex;
     flex-direction : column;
     justify-content: space-between;
 
-    /*set size of div*/
+    
     width : 45vw;
     height : auto;
 
@@ -194,14 +194,14 @@ export default{
 }
 
 @media screen and (min-width:767px) and (max-width:1023px){
-    .agent-section{
-    /*flexbox*/
+.agent-section{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    /*set section size and border*/
+    
     border : 1px solid var(--grey-border);
     width: 85vw;
     height: 60%;
@@ -225,12 +225,12 @@ export default{
 }
 
 .info-container{
-    /*set flexbox*/
+    
     display: flex;
     flex-direction : column;
     justify-content: space-between;
 
-    /*set size of div*/
+    
     width : 45vw;
     height : auto;
 
@@ -317,13 +317,13 @@ export default{
 
 @media screen and (max-width:767px){
     .agent-section{
-    /*flexbox*/
+    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
-    /*set section size and border*/
+   
     border : 1px solid var(--grey-border);
     width: 90vw;
     height: 100%;
@@ -347,12 +347,12 @@ export default{
 }
 
 .info-container{
-    /*set flexbox*/
+    
     display: flex;
     flex-direction : column;
     justify-content: space-between;
 
-    /*set size of div*/
+
     width : 95%;
     height : auto;
 

@@ -87,18 +87,18 @@ export default {
 }
 @media screen and (min-width: 767px) and (max-width:1023px){
 .container {
-    /*set size of the container*/
+    
     width : 200px;
     height : 200px;
     padding : 10px;
 
-    /*set flexbox*/ 
+   
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: space-around;
 
-    /*set grey border*/
+    
     border : 1px solid #BDBAB4;
     color: #111;
     
@@ -127,19 +127,19 @@ export default {
 
 @media screen and (max-width:767px){
 
-    .container {
-    /*set size of the container*/
+.container {
+   
     width : 115px;
     height : 115px;
     padding : 2px;
 
-    /*set flexbox*/ 
+    
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content: space-around;
 
-    /*set grey border*/
+
     border : 1px solid #BDBAB4;
     color: #111;
     

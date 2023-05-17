@@ -44,7 +44,7 @@
 <script>
  /* eslint-disable */
 import AgentCard from './AgentCard.vue'
-import { getAgentsData } from '@/services/api/weaponsAPI.js'
+import { getAgentsData } from '@/services/api/InfoAPI.js'
 import AgentDetailedSection from './AgentDetailedSection.vue';
 
     export default{
@@ -95,7 +95,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
                     tempAgent = tempAgent.sort((a,b)=> a.displayName.localeCompare(b.displayName))
                 }
                 else if(this.sortBy =='ZAName'){
-                    //tempAgent = tempAgent.reverse()
+                    
                     tempAgent = tempAgent.sort((a,b)=> b.displayName.localeCompare(a.displayName))
                 }
 
@@ -105,7 +105,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
                     return 0;}});
                 }
                 else if(this.sortBy == 'ZARole'){
-                    // tempAgent = tempAgent.reverse()
+                    
                     tempAgent = tempAgent.sort((a, b) => {if (a.role && b.role) {return b.role.displayName.localeCompare(a.role.displayName);} else {
                     return 0;}});
                 }
@@ -203,8 +203,11 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
 }
 
 .header-section{
+    height: 50px;
+    margin-left : 20px;
     display : flex;
-    flex-direction: column
+    flex-direction: column;
+    align-items: start;
 }
 
 

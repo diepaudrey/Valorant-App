@@ -20,7 +20,7 @@
                         </select>  
                 </div>
 
-                <!-- <WeaponsCheckbox :weaponsCategory="this.weapons.category"/> -->
+
             </div>
 
             <div class="container-checkboxes">
@@ -76,10 +76,10 @@
 </template>
 
 <script>
- /* eslint-disable */
+
 import WeaponCard from './WeaponCard.vue'
-import { getWeaponsData } from '@/services/api/weaponsAPI.js'
-import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
+import { getWeaponsData } from '@/services/api/InfoAPI.js'
+import { getSkinsWeaponsData } from '@/services/api/InfoAPI.js'
 
 
     export default{
@@ -96,7 +96,7 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
             sortBy: function(newSort){
                 localStorage.setItem("sort", newSort)
             },
-            categories: function(newCategories){
+            categories: function(){
                 let string = JSON.stringify(this.categories)
                 localStorage.setItem("categoriesSelected", string)
             },
@@ -185,7 +185,7 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
                 this.filteredWeapons[index].displayName = randSkinObj.displayName
             },
 
-            randomSkin(index){
+            randomSkin(){
 
                 //transform the selected weapon name to string
                 const weaponName = this.selectedWeapon.displayName.split(' ')[0].toString()
@@ -247,7 +247,6 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 .weapon-cards{
     display : flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     justify-content : center;
     margin-bottom : -1px;
 }
@@ -316,7 +315,7 @@ import { getSkinsWeaponsData } from '@/services/api/weaponsAPI.js'
 @media screen and (max-width: 767px) {
 
 .header-section{
-    height: 100px;
+    height: 50px;
     margin-left : 20px;
     display : flex;
     flex-direction: column;

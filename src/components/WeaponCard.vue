@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    /* eslint-disable */
+   
     export default {
         name: 'WeaponCard',
         props : {
@@ -24,13 +24,11 @@
 @media screen and (min-width: 1024px) {
 
 .weapon-card{
-    /*set flexbox*/ 
     display : flex;
     flex-direction : column;
     justify-content : space-around;
     align-items : center;
 
-    /*set size & border card*/
     width: 80%;
     height: 250px;
     border : 1px solid #BDBAB4;
@@ -59,14 +57,13 @@
 }
 
 @media screen and (min-width: 767px) and (max-width:1023px){
-    .weapon-card{
-    /*set flexbox*/ 
+.weapon-card{
+    
     display : flex;
     flex-direction : column;
     justify-content : space-around;
     align-items : center;
 
-    /*set size & border card*/
     width: 80%;
     height: 250px;
     border : 1px solid #BDBAB4;
@@ -89,13 +86,12 @@
 @media screen and (max-width: 767px) {
 
 .weapon-card{
-    /*set flexbox*/ 
+    
     display : flex;
     flex-direction : column;
     justify-content : space-around;
     align-items : center;
 
-    /*set size & border card*/
     width: 80%;
     height: 100px;
     border : 1px solid #BDBAB4;

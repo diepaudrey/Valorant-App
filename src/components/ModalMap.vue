@@ -17,10 +17,6 @@
         <section class="modal-body">
           <div class="img-map" v-bind:style="{ 'background-image': 'url(' + map.displayIcon + ')' }"> 
           </div>
-
-          <!-- <div v-for="callout in map.callouts" :key="callout.regionName" class="callout-marker" :style="getCalloutMarkerStyle(callout)">
-          {{ callout.regionName }}
-          </div> -->
         </section>
   
       </div>
@@ -35,26 +31,7 @@ export default {
  
   methods: {
     close() {
-      console.log("Closed")
       this.$emit('close');
-    },
-    getCalloutMarkerStyle(callout) {
-      const posX = callout.location.x * this.map.xMultiplier + this.map.xScalarToAdd
-      const posY = callout.location.y * this.map.yMultiplier + this.map.yScalarToAdd
-      
-      // const height = 500
-      // const width = 800
-      // const posX = callout.location.x/20 + 400
-      // const posY = callout.location.y/20 + 500
-
-      console.log("X : ", posX, "Y : ", posY)
-      return {
-        position: "absolute",
-        left: `${posX}px`,
-        top: `${posY}px`
-       
-      };
-    
     },
 }
 }
@@ -62,7 +39,8 @@ export default {
 </script>
 
 <style>
-  .modal-backdrop {
+
+.modal-backdrop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -73,31 +51,13 @@ export default {
     justify-content: center;
     align-items: center;
   }
-
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 90%;
-  }
-
   .modal-header,
   .modal-footer {
     padding: 15px;
     display: flex;
   }
 
-  .modal-header {
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    color: var(--red);
-    font-family: Valorant;
-    font-size: 3em;
-    justify-content: space-between;
-  }
+ 
 
  
   .modal-body {
@@ -115,12 +75,6 @@ export default {
     background-position: center;
   }
 
-  .callout-marker {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 5px;
-  border-radius: 5px;
-}
 
   .btn-close {
     position: absolute;
@@ -133,6 +87,79 @@ export default {
     font-weight: bold;
     color: var(--red);
     background: transparent;
+  }
+
+@media screen and (min-width: 1024px){
+
+  .modal {
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+  }
+
+  .modal-header {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    color: var(--red);
+    font-family: Valorant;
+    font-size: 3em;
+    justify-content: space-between;
+  }
+
+ 
+}
+
+@media screen and (min-width: 767px) and (max-width:1023px){
+  .modal {
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70%;
+  }
+
+
+  .modal-header {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    color: var(--red);
+    font-family: Valorant;
+    font-size: 2.5em;
+    justify-content: space-between;
+  }
+
+
+}
+  
+  @media screen and (max-width: 767px){
+
+  .modal {
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 60%;
+  }
+
+
+  .modal-header {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    color: var(--red);
+    font-family: Valorant;
+    font-size: 2em;
+    justify-content: space-between;
+  }
+
+
   }
 
 </style>
