@@ -4,8 +4,6 @@
         </div>
         <p class="ability-name"> {{abilityName}} </p>
     </div>
-    
-    
 </template>
 
 <script>

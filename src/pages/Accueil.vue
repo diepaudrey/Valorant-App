@@ -1,7 +1,9 @@
 <template>
+    <section>
         <HeaderSection/>
         <MainSection/>
         <FooterSection/>
+    </section>
 </template>
 
 <script>

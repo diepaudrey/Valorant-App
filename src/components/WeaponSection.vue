@@ -314,7 +314,7 @@ import { getSkinsWeaponsData } from '@/services/api/InfoAPI.js'
     margin-left : 20px;
     display : flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
     .container-checkboxes{
     display : flex;

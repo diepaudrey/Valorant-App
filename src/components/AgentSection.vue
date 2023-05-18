@@ -207,7 +207,7 @@ import AgentDetailedSection from './AgentDetailedSection.vue';
     margin-left : 20px;
     display : flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 

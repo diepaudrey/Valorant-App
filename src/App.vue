@@ -1,5 +1,4 @@
 
-
 <template>
   <div>
     <router-view></router-view>
@@ -9,24 +8,9 @@
 </template>
 
 <script>
-/* eslint-disable */
-
-import AccueilPage from './pages/Accueil.vue'
-import MapPage from './pages/Maps.vue'
-import WeaponPage from './pages/Weapons.vue'
-
-import AgentSection from './components/AgentSection.vue'
-
 
 export default {
   name: 'App',
-  components: {
-    AccueilPage,
-    MapPage,
-    WeaponPage,
-    
-    AgentSection,
-  }
 }
 </script>
 

@@ -30,7 +30,6 @@
                 <MapCard @click="selectMap(map)"
                 :mapName="map.displayName" 
                 :mapImg="map.splash"/>
-                
             </div>
 
         </div>
@@ -142,7 +141,7 @@ import { getMapsData } from '@/services/api/InfoAPI';
     margin-left : 20px;
     display : flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 }
 </style>
