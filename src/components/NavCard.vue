@@ -12,7 +12,7 @@
     props: {
         routerLink : String,
         cardName : String,
-        imgUrl : {type : String, default : "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt962a6518612d78db/6131a93da9655d098c7cd8f0/09082021-Episode-3-Act-II-Overview-Article-Banner.jpg"}
+        imgUrl : {type : String, default : "https://media.valorant-api.com/sprays/fd92bdcd-4ae8-861e-843a-05a8113a4d11/fulltransparenticon.png"}
     }
 
 }

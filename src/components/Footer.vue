@@ -21,6 +21,9 @@ export default {
 @media screen and (min-width:1024px){
     footer{
     background-color:#111;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
 
 }
 .container-footer-text{
@@ -28,9 +31,7 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-
-    height : 15vh;
-    color: white;
+    height : 15vh;   
 }
 
 
@@ -41,6 +42,7 @@ export default {
 @media screen and (min-width: 767px) and (max-width:1023px){
     footer{
     background-color:#111;
+    color: #fff;
 
 }
 .container-footer-text{
@@ -48,9 +50,7 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-
     height : 10vh;
-    color: white;
 }
 .text{
     font-size: 12px;
@@ -62,6 +62,7 @@ export default {
 @media screen and (max-width:767px){
     footer{
     background-color:#111;
+    color: #fff;
 
 }
 .container-footer-text{
@@ -69,9 +70,7 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-
     height : 10vh;
-    color: white;
 }
 .text{
     font-size: 2vw;

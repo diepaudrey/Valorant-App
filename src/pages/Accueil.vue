@@ -8,7 +8,7 @@
 
 <script>
 import HeaderSection from '../components/Header.vue'
-import MainSection from '../components/AccueilSection.vue'
+import MainSection from '../components/MainSection.vue'
 import FooterSection from '../components/Footer.vue'
 
 

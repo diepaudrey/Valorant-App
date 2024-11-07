@@ -105,7 +105,7 @@ import { getMapsData } from '@/services/api/InfoAPI';
                 const promise = getMapsData();
                 //by default sort in AZname 
                 const comparator = (a,b)=> a.displayName.localeCompare(b.displayName);
-                promise.then((result) => this.maps = result.data.sort(comparator));
+                promise.then((result) => this.maps = result.data.sort(comparator).filter(map => !map.displayName.includes('Entraînement')));
             },
 
             selectMap(map){
