@@ -127,6 +127,9 @@ import { getMapsData } from '@/services/api/InfoAPI';
 </script>
 
 <style scoped>
+.map-section {
+    padding-bottom: 2%;
+}
 @media screen and (max-width:767px){
 
 .search-sort-container{

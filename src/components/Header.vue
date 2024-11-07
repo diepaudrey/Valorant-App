@@ -1,7 +1,7 @@
 <template> 
     <header class="header">
         <nav class="navbar">
-            <img class="valorant-logo" src="../assets/valorant-logo.svg" alt="valorant-logo">
+            <img class="valorant-logo" src="../assets/logo-valo.svg" alt="valorant-logo">
             <ul class="ul-container">
                 <li><router-link :to="{name: 'homepage'}"> Accueil </router-link></li>
                 <li><router-link :to="{name: 'agents'}">Agents</router-link></li>
@@ -27,7 +27,7 @@
 @media screen and (min-width: 1024px) {
 .valorant-logo {
     position: relative;
-    width: 2%;
+    width: 3%;
     height : auto;
     padding : 20px;
     margin-right : auto;
@@ -73,7 +73,6 @@
     margin-left : 0;
     padding : 0;
 
-   
     position: absolute;
     z-index: 0;
 }
@@ -90,8 +89,8 @@ a{
 }
 
 a:hover{
+    transition: 0.5s;
     color : var(--red);
-    text-decoration: underline;
 }
 
 

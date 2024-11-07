@@ -237,6 +237,9 @@ import { getSkinsWeaponsData } from '@/services/api/InfoAPI.js'
 
 <style scoped>
 
+.weapon-section {
+    padding-bottom: 2%;
+}
 @media screen and (min-width: 1024px) {
 
 .weapon-cards{
